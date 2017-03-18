@@ -1,7 +1,5 @@
-Ionic 2 App Base
+Junglenomics App Base
 =====================
-
-This is the base template for Ionic 2 starter apps.
 
 ## Using this project
 
