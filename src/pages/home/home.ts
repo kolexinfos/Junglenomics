@@ -3,10 +3,6 @@ import { NavController, LoadingController } from 'ionic-angular';
 import {InAppBrowser, SocialSharing, Device} from 'ionic-native';
 
 
-import { ReportPage } from '../report/report';
-import { ContactPage } from '../contact/contact';
-
-import {RadioPlayer} from '../../providers/radio-player/radio-player';
 
 declare var window;
 /*
@@ -27,57 +23,15 @@ mySlideOptions = {
     pager:true
   };
 
-  playState: string
-  //audioStream = new Audio("http://streaming.radio.co/s7f3695a64/listen");
+  
 
-  constructor(public player: RadioPlayer, public navCtrl: NavController, public loadingCtrl: LoadingController) {
-    //this.player = player;
-   
-    this.playState = "pause";
-    
+  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {    
     console.log("Constructor called");
   }
 
   
   ionViewDidEnter() {
-    console.log("View did enter");
-     this.startPlaying();
-    
-  }
-
-  Toggle() {
-
-        console.log('Playback was toggled');
-        
-        if(this.playState == 'pause'){
-
-        this.player.pause();
-          console.log('The sream is paused');
-          this.playState = "play";        
-        }
-        else{
-          this.startPlaying();
-          this.playState = "pause";
-        }
-      }   
-
-
-  startPlaying() {
-    
-    if(this.player.playing == false){
-    let loadingPopup = this.loadingCtrl.create({
-      content: 'Loading please wait...'
-    });
-
-    loadingPopup.present();
-    
-        this.player.play()
-        .then(() => {
-          console.log('Playing');
-          loadingPopup.dismiss();
-        });
-    }
-    
+    console.log("View did enter");   
   }
 
   ShareApp() {
@@ -110,23 +64,11 @@ mySlideOptions = {
     console.log(browser);
   }
 
-  gotoReport(){
-    console.log("Report clicked");
-    this.navCtrl.push(ReportPage,{
-      type : 'Report'
-    });
-  }
-
   onSlideChangeStart(event){
-    //console.log(event);
+    console.log(event);
   }
 
-  gotoContact(){
-    console.log("Contact clicked");
-    this.navCtrl.push(ReportPage,{
-      type : 'Contact'
-    });
-  }
+ 
 
   gotoPrograms(){
     console.log("Programs Clicked");

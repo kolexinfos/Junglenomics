@@ -29,43 +29,28 @@
 <ion-content class="cards-bg icons-basic-page home " >
 
 
-  <ion-card>
-
-    <!--<ion-item>-->
-      <!--<ion-avatar item-left>-->
-        <!--<img src="img/234radio.jpg">-->
-      <!--</ion-avatar>-->
-      <!--&lt;!&ndash;<h2>Marty McFly</h2>&ndash;&gt;-->
-      <!--&lt;!&ndash;<p>November 5, 1955</p>&ndash;&gt;-->
-    <!--</ion-item>-->
-
-    <img src="img/234radio.jpg"/>
+  <ion-card>    
     <ion-card-content>
       <h2 class="card-title" color="danger">
-        234Radio Live!!!
+        Welcome to Junglenomics
       </h2>
       <p color="danger">
-        Get unlimited access to unparalleled programmes and news on the radio, access our social media platforms and be our reporter via iWitness.
-
-      </p>
+        Get unlimited access to instructions, rules, scoring and game play.</p>
       </ion-card-content>
-
-     <ion-slides [options]="mySlideOptions" (ionWillChange)="onSlideChangeStart($event)">
-    <ion-slide>
-      <img src="img/atittude.jpg" class="slide-image"/>
-    </ion-slide>
-    <ion-slide>
-      <img src="img/dance.jpg" class="slide-image"/>
-
-    </ion-slide>
-    <ion-slide>
-      <img src="img/mic.jpg" class="slide-image"/>
-
-    </ion-slide>
-    <ion-slide>
-      <img src="img/music.jpg" class="slide-image"/>
-    </ion-slide>
-  </ion-slides>
+      <ion-slides [loop] = "true" [autoplay]="2000" (ionWillChange)="onSlideChangeStart($event)">
+          <ion-slide>
+            <img src="img/ant.jpg" class="slide-image"/>
+          </ion-slide>
+          <ion-slide>
+            <img src="img/bee.jpg" class="slide-image"/>
+          </ion-slide>
+          <ion-slide>
+            <img src="img/butterfly.jpg" class="slide-image"/>
+          </ion-slide>
+          <ion-slide>
+            <img src="img/ant.jpg" class="slide-image"/>
+          </ion-slide>
+      </ion-slides>     
 
       <ion-row>
         <ion-col width-50><ion-icon (click)="Toggle()" name="{{playState}}" color="fb"></ion-icon><p color="fb">Listen Live</p></ion-col>
