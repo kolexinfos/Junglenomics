@@ -4,8 +4,6 @@ import {InAppBrowser, SocialSharing, Device} from 'ionic-native';
 import { ScorePage } from '../score/score';
 
 
-
-declare var window;
 /*
   Generated class for the HomePage page.
 
