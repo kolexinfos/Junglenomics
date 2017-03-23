@@ -16,32 +16,36 @@
 <ion-content padding>
 
   <ion-card>
-  <img src="img/nin-live.png"/>
+  <img src="img/ant.jpg"/>
   <ion-card-content>
           
-          <p>
-            The most popula industrial group ever, and largely
-            responsible for bringing the music to a mass audience.
-          </p>
-          <ion-list>
+          <!--<p>
+            Do you have an Animal Card?
+          </p>-->
 
-          <ion-item>
-            <ion-label stacked>Username</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
+          <ion-list radio-group>
+                <ion-list-header>
+                  Do you have an animal card?
+                </ion-list-header>
 
-          <ion-item>
-            <ion-label stacked>Password</ion-label>
-            <ion-input type="password"></ion-input>
-          </ion-item>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio checked="true" value="go"></ion-radio>
+                </ion-item>
 
-        </ion-list>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="rust"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>Not Yet</ion-label>
+                  <ion-radio value="python"></ion-radio>
+                </ion-item>
+          </ion-list>
+          
       </ion-card-content>
   </ion-card>
-  <ion-item>
-      <ion-icon name="logo-twitter" item-left></ion-icon>
-      Followers
-      <ion-badge item-right>260k</ion-badge>
- </ion-item>
+  
 
 </ion-content>
