@@ -47,7 +47,7 @@
 
           <ion-list>
               <ion-item>
-                <ion-label floating>Number of Animal Cards</ion-label>
+                <ion-label floating>Number of Relational Cards</ion-label>
                 <ion-input type="text"></ion-input>
               </ion-item>
               <ion-item>
@@ -57,6 +57,75 @@
           </ion-list>
           <div padding>
             <button (click)="RelationalNext()" ion-button color="danger" block>Next</button>
+          </div>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="peopleSection">
+  <!--<img src="img/ant.jpg"/>-->
+  <ion-card-header color="danger">
+    People Cards
+  </ion-card-header>
+  <ion-card-content>
+
+          <ion-list>
+              <ion-item>
+                <ion-label floating>Number of People Cards</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating>Number of connecting Innovation Cards</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+          </ion-list>
+          <div padding>
+            <button (click)="PeopleNext()" ion-button color="danger" block>Next</button>
+          </div>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="giveSection">
+  <!--<img src="img/ant.jpg"/>-->
+  <ion-card-header color="danger">
+    Give Cards
+  </ion-card-header>
+  <ion-card-content>
+
+          <ion-list>
+              <ion-item>
+                <ion-label floating>Number of Give Cards</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating>Number of connecting Innovation Cards</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+          </ion-list>
+          <div padding>
+            <button (click)="GiveNext()" ion-button color="danger" block>Next</button>
+          </div>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="getSection">
+  <!--<img src="img/ant.jpg"/>-->
+  <ion-card-header color="danger">
+    Get Cards
+  </ion-card-header>
+  <ion-card-content>
+
+          <ion-list>
+              <ion-item>
+                <ion-label floating>Number of Get Cards</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating>Number of connecting Innovation Cards</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+          </ion-list>
+          <div padding>
+            <button (click)="GetNext()" ion-button color="danger" block>Next</button>
           </div>
       </ion-card-content>
   </ion-card>

@@ -14,7 +14,10 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ScorePage {
 
   animalSection:Boolean = true;
-  relationalSection : Boolean = true;
+  relationalSection : Boolean = false;
+  peopleSection : Boolean = false;
+  giveSection : Boolean = false;
+  getSection : Boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
@@ -24,8 +27,31 @@ export class ScorePage {
 
   AnimalNext(){
     console.log("Next Button on the Animal Page clicked");
+    this.relationalSection = true;
+    this.animalSection = false
+
   }
 
+  RelationalNext(){
+    console.log("Next Button on the Relational Page clicked");
+    this.relationalSection = false;
+    this.peopleSection = true;
+  }
 
+  PeopleNext(){
+    console.log("Next Button on the People Page clicked");
+    this.peopleSection = false;
+    this.getSection = true;
+  }
+
+  GetNext(){
+    console.log("Next Button on the Get Page clicked");
+    this.getSection = false;
+    this.giveSection = true;
+  }
+
+  GiveNext(){
+    console.log("Next Button on the Give Page clicked");
+  }
 
 }
