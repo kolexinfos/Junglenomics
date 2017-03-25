@@ -13,37 +13,51 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 
-  <ion-card>
-  <img src="img/ant.jpg"/>
+  <ion-card *ngIf="animalSection">
+  <!--<img src="img/ant.jpg"/>-->
+  <ion-card-header color="danger">
+    Animal Card
+  </ion-card-header>
   <ion-card-content>
-          
-          <!--<p>
-            Do you have an Animal Card?
-          </p>-->
 
-          <ion-list radio-group>
-                <ion-list-header>
-                  Do you have an animal card?
-                </ion-list-header>
-
-                <ion-item>
-                  <ion-label>Yes</ion-label>
-                  <ion-radio checked="true" value="go"></ion-radio>
-                </ion-item>
-
-                <ion-item>
-                  <ion-label>No</ion-label>
-                  <ion-radio value="rust"></ion-radio>
-                </ion-item>
-
-                <ion-item>
-                  <ion-label>Not Yet</ion-label>
-                  <ion-radio value="python"></ion-radio>
-                </ion-item>
+          <ion-list>
+              <ion-item>
+                <ion-label floating>Number of Animal Cards</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating>Number of Innovation Cards</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
           </ion-list>
-          
+          <div padding>
+            <button (click)="AnimalNext()" ion-button color="danger" block>Next</button>
+          </div>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="relationalSection">
+  <!--<img src="img/ant.jpg"/>-->
+  <ion-card-header color="danger">
+    Relational Cards
+  </ion-card-header>
+  <ion-card-content>
+
+          <ion-list>
+              <ion-item>
+                <ion-label floating>Number of Animal Cards</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating>Number of connecting Innovation Cards</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+          </ion-list>
+          <div padding>
+            <button (click)="RelationalNext()" ion-button color="danger" block>Next</button>
+          </div>
       </ion-card-content>
   </ion-card>
   

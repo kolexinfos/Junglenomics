@@ -13,10 +13,19 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ScorePage {
 
+  animalSection:Boolean = true;
+  relationalSection : Boolean = true;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScorePage');
   }
+
+  AnimalNext(){
+    console.log("Next Button on the Animal Page clicked");
+  }
+
+
 
 }

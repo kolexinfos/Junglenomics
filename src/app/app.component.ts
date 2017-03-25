@@ -11,7 +11,7 @@ import { ScorePage } from '../pages/score/score';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = TutorialPage;
+  rootPage = HomePage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
