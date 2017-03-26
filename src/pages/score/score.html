@@ -25,15 +25,15 @@
           <ion-list>
               <ion-item>
                 <ion-label floating>Number of Animal Cards</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input [(ngModel)]="animalModel.cardsCount" type="text" ></ion-input>
               </ion-item>
               <ion-item>
-                <ion-label floating>Number of Innovation Cards</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-label floating>Combined Animal Cards</ion-label>
+                <ion-input [(ngModel)]="animalModel.combined" type="text"></ion-input>
               </ion-item>
           </ion-list>
           <div padding>
-            <button (click)="AnimalNext()" ion-button color="danger" block>Next</button>
+            <button (click)="AnimalNext()" ion-button color="danger" small >Next</button>
           </div>
       </ion-card-content>
   </ion-card>
@@ -56,7 +56,7 @@
               </ion-item>
           </ion-list>
           <div padding>
-            <button (click)="RelationalNext()" ion-button color="danger" block>Next</button>
+            <button (click)="RelationalNext()" ion-button color="danger" small>Next</button>
           </div>
       </ion-card-content>
   </ion-card>
@@ -79,7 +79,7 @@
               </ion-item>
           </ion-list>
           <div padding>
-            <button (click)="PeopleNext()" ion-button color="danger" block>Next</button>
+            <button (click)="PeopleNext()" ion-button color="danger" small>Next</button>
           </div>
       </ion-card-content>
   </ion-card>
@@ -102,7 +102,7 @@
               </ion-item>
           </ion-list>
           <div padding>
-            <button (click)="GiveNext()" ion-button color="danger" block>Next</button>
+            <button (click)="GiveNext()" ion-button color="danger" small>Next</button>
           </div>
       </ion-card-content>
   </ion-card>
@@ -125,8 +125,27 @@
               </ion-item>
           </ion-list>
           <div padding>
-            <button (click)="GetNext()" ion-button color="danger" block>Next</button>
+            <button (click)="GetNext()" ion-button color="danger" small>Next</button>
           </div>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+  <ion-card-content>
+
+          <ion-item>
+            <ion-icon name="warning" color="secondary" item-left></ion-icon>
+            <p color="secondary">Total Risk Rating</p>
+            <ion-badge color="secondary" item-right>{{score.animalTotal + score.relationalTotal}}</ion-badge>
+          </ion-item>          
+        
+          <ion-item>
+            <ion-icon name="done-all" color="favorite" item-left></ion-icon>
+            <p color="favorite">Total Score</p>
+            <ion-badge item-right>{{score.animalTotal + score.relationalTotal}}</ion-badge>
+          </ion-item>
+
+          
       </ion-card-content>
   </ion-card>
   

@@ -13,13 +13,23 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ScorePage {
 
+  score:{animalTotal?:number, relationalTotal?:number, peopleTotal?:number, giveTotal?:number, getTotal?: number} = {}
+
   animalSection:Boolean = true;
   relationalSection : Boolean = false;
   peopleSection : Boolean = false;
   giveSection : Boolean = false;
   getSection : Boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  animalModel:{cardsCount?: string, combined?:string} = {}
+
+  constructor(public navCtrl: NavController, public navParams: NavParams)  {
+    this.score.animalTotal = 0;
+    this.score.relationalTotal = 0;
+    this.score.peopleTotal = 0
+    this.score.giveTotal = 0;
+    this.score.getTotal = 0;
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScorePage');
@@ -29,6 +39,15 @@ export class ScorePage {
     console.log("Next Button on the Animal Page clicked");
     this.relationalSection = true;
     this.animalSection = false
+
+    //console.log(typeof(parseInt(this.animalModel.cardsCount)));
+    if(isNaN(parseInt(this.animalModel.cardsCount)) && isNaN(parseInt(this.animalModel.combined))){
+        console.log("This is not a number");
+        //TODO: Put Toast in here
+    }
+    else{
+      this.score.animalTotal = ((parseInt(this.animalModel.cardsCount) * 10) + (parseInt(this.animalModel.combined) * 20));
+    }
 
   }
 
