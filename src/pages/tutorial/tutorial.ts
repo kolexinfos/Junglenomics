@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { MenuController, NavController, Platform, LoadingController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 
 interface Slide {
@@ -63,7 +64,7 @@ export class TutorialPage {
   }
   startApp() {
 
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(TabsPage);
   }
 
   onSlideChangeStart(slider) {
