@@ -6,13 +6,61 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>register</ion-title>
+  <ion-navbar color="danger">
+    <ion-title>Register</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+   <ion-card>
+
+      <form #registerForm="ngForm" novalidate>
+        <ion-item>
+          <ion-label floating color="primary">Full Name</ion-label>
+          <ion-input [(ngModel)]="register.name" name="name" type="text" #name="ngModel" required></ion-input>
+        </ion-item>
+        <div [hidden]="name.valid || name.untouched" >
+          <p  *ngIf="name.errors && name.errors.required" color="danger" padding-left>
+            Title is required
+          </p>
+        </div>
+
+        <ion-item>
+          <ion-label floating color="primary">Email Address</ion-label>
+          <ion-input [(ngModel)]="register.email" name="email" type="text" #email="ngModel" required>
+          </ion-input>
+        </ion-item>
+        <div [hidden]="email.valid || email.untouched" >
+          <p  *ngIf="email.errors && email.errors.required" color="danger" padding-left>
+            Email is required
+          </p>
+          <p *ngIf="email.errors && email.errors.pattern" color="danger" padding-left>
+            Email is invalid
+          </p>
+        </div>
+
+        <ion-item>
+          <ion-label floating color="primary">Mobile Number</ion-label>
+          <ion-input [(ngModel)]="register.phone" name="phone" type="text" #phone="ngModel"  required pattern="^[0-9]*$">
+          </ion-input>
+        </ion-item>
+        <div [hidden]="phone.valid || phone.untouched" >
+           <p  *ngIf="phone.errors && phone.errors.required" color="danger" padding-left>
+            Phone Number is required
+          </p>              
+          <p *ngIf="phone.errors && phone.errors.pattern" color="danger" padding-left>
+            Phone Number is invalid. Enter a valid Phone number
+          </p>
+          </div>
+        
+
+        <div padding>
+          <button ion-button (click)="onSubmit(reportForm)" type="submit" color="danger" block>Submit</button>
+        </div>
+
+      </form>
+  </ion-card>
 
 </ion-content>

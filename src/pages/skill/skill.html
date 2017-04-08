@@ -6,13 +6,42 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>skill</ion-title>
+  <ion-navbar color="danger">
+    <ion-title>SkillMi Quiz</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+    <ion-card >
+  <!--<img src="img/ant.jpg"/>-->
+  <ion-card-header color="danger">
+    Animal Card
+  </ion-card-header>
+  <ion-card-content>
+    <p color="danger">THERE ARE 6 TYPES OF ANIMAL CARDS (ANT,BUMBLE BEE, CHEETAH, BUTTERFLY, WASP & ELEPHANT).</p>
 
+          <ion-list radio-group [(ngModel)]="autoManufacturers">
+
+            <ion-item>
+                <ion-label color="danger">Cord</ion-label>
+                <ion-radio color="danger" value="cord"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label color="danger">Duesenberg</ion-label>
+                <ion-radio color="danger" value="duesenberg"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label color="danger">Hudson</ion-label>
+                <ion-radio color="danger" value="hudson"></ion-radio>
+              </ion-item>
+          </ion-list>
+          <div padding>
+            <button (click)="AnimalNext()" ion-button color="danger" small >Next</button>
+          </div>
+      </ion-card-content>
+  </ion-card>
 </ion-content>
