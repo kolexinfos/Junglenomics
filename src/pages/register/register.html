@@ -19,7 +19,7 @@
       <form #registerForm="ngForm" novalidate>
         <ion-item>
           <ion-label floating color="primary">Full Name</ion-label>
-          <ion-input [(ngModel)]="register.username" name="username" type="text" #username="ngModel" required></ion-input>
+          <ion-input [(ngModel)]="register.username" name="username" type="text" #username="ngModel" required clearInput="true"></ion-input>
         </ion-item>
         <div [hidden]="username.valid || username.untouched" >
           <p  *ngIf="username.errors && username.errors.required" color="danger" padding-left>
@@ -29,7 +29,7 @@
 
         <ion-item>
           <ion-label floating color="primary">Password</ion-label>
-          <ion-input [(ngModel)]="register.password" name="password" type="password" #password="ngModel" required></ion-input>
+          <ion-input [(ngModel)]="register.password" name="password" type="password" #password="ngModel" required clearInput="true"></ion-input>
         </ion-item>
         <div [hidden]="password.valid || password.untouched" >
           <p  *ngIf="password.errors && password.errors.required" color="danger" padding-left>
@@ -39,7 +39,7 @@
 
         <ion-item>
           <ion-label floating color="primary">Email Address</ion-label>
-          <ion-input [(ngModel)]="register.email" name="email" type="text" #email="ngModel" required>
+          <ion-input [(ngModel)]="register.email" name="email" type="text" #email="ngModel" required clearInput="true">
           </ion-input>
         </ion-item>
         <div [hidden]="email.valid || email.untouched" >
@@ -53,7 +53,7 @@
 
         <ion-item>
           <ion-label floating color="primary">Mobile Number</ion-label>
-          <ion-input [(ngModel)]="register.phone" name="phone" type="text" #phone="ngModel"  required pattern="^[0-9]*$">
+          <ion-input [(ngModel)]="register.phone" name="phone" type="text" #phone="ngModel" clearInput="true"  required pattern="^[0-9]*$">
           </ion-input>
         </ion-item>
         <div [hidden]="phone.valid || phone.untouched" >

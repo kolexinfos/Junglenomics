@@ -17,13 +17,38 @@ export class SkillPage {
 
   questions:Array<string> = [];
 
+  question: {text?: string} = {};
+
+  questionNumber: number = 0
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private messageProvider: MessageProvider) {
     this.questions = this.messageProvider.GetData();
+
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SkillPage');
     console.log(this.questions);
+
+    this.question.text = this.questions[this.questionNumber];
+    this.questionNumber += 1;
   }
+  
+  Next(){
+    if(this.questionNumber != 63){
+    this.question.text = this.questions[this.questionNumber];
+    this.questionNumber += 1;
+    console.log(this.questions.length)
+    }
+    else{
+          this.SendReport();
+      }
+
+  }
+
+SendReport(){
+    console.log();
+}
 
 }
