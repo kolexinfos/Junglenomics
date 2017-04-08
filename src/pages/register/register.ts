@@ -16,12 +16,13 @@ import { MessageProvider } from '../../providers/message-provider/message-provid
 })
 export class RegisterPage {
 
-  register: {email?: string, phone?: string,name?: string} = {};
+  register: {email?: string, phone?: string,username?: string, password?:string} = {};
 
   submit = false;
+  
 
   constructor(public navCtrl: NavController, 
-  public navParams: NavParams, 
+  public navParams: NavParams,
   private loadingCtrl: LoadingController,
   private messageProvider: MessageProvider) {}
 
@@ -32,11 +33,11 @@ export class RegisterPage {
    onSubmit(form)
     {
          let loadingPopup = this.loadingCtrl.create({
-                  content: 'Sending your report...',
+                  content: 'Please wait sending your registration details...',
                   dismissOnPageChange : true
             });
             
-        Toast.show("Please wait sending your report...", "short", 'bottom').subscribe(
+        Toast.show("Please wait...", "short", 'bottom').subscribe(
                             toast => {
                             console.log(toast);
                           }
@@ -48,14 +49,15 @@ export class RegisterPage {
         {  
             loadingPopup.present();
 
-            this.messageProvider.SendReport(this.register).subscribe(
+            this.messageProvider.Register(this.register).subscribe(
                 data => {
                     console.log(data);
                     this.register = {};
 
                     loadingPopup.dismiss().catch(() => {});
                     this.navCtrl.pop();
-                     Toast.show("You report was submitted successfully.", "short", 'bottom').subscribe(
+                    // this.app.getRootNav().getActiveChildNav().select(1);
+                     Toast.show("You have been registered successfully.", "short", 'bottom').subscribe(
                             toast => {
                             console.log(toast);
                           }
@@ -73,13 +75,13 @@ export class RegisterPage {
                     );
                 },
                 () => {
-                    console.log('Finally called on CreateReport');
+                    console.log('Finally Registration Complete');
                    loadingPopup.dismiss().catch(() => {});
                 }
                 )
         }
         else{
-            Toast.show("Please make sure all the fields are filled in and an image is selected", "long", 'bottom').subscribe(
+            Toast.show("Please make sure all the fields are filled.", "long", 'bottom').subscribe(
                             toast => {
                             console.log(toast);
                           });

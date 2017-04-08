@@ -19,11 +19,21 @@
       <form #registerForm="ngForm" novalidate>
         <ion-item>
           <ion-label floating color="primary">Full Name</ion-label>
-          <ion-input [(ngModel)]="register.name" name="name" type="text" #name="ngModel" required></ion-input>
+          <ion-input [(ngModel)]="register.username" name="username" type="text" #username="ngModel" required></ion-input>
         </ion-item>
-        <div [hidden]="name.valid || name.untouched" >
-          <p  *ngIf="name.errors && name.errors.required" color="danger" padding-left>
-            Title is required
+        <div [hidden]="username.valid || username.untouched" >
+          <p  *ngIf="username.errors && username.errors.required" color="danger" padding-left>
+            Password is required
+          </p>
+        </div>
+
+        <ion-item>
+          <ion-label floating color="primary">Password</ion-label>
+          <ion-input [(ngModel)]="register.password" name="password" type="password" #password="ngModel" required></ion-input>
+        </ion-item>
+        <div [hidden]="password.valid || password.untouched" >
+          <p  *ngIf="password.errors && password.errors.required" color="danger" padding-left>
+            Password is required
           </p>
         </div>
 
@@ -48,16 +58,16 @@
         </ion-item>
         <div [hidden]="phone.valid || phone.untouched" >
            <p  *ngIf="phone.errors && phone.errors.required" color="danger" padding-left>
-            Phone Number is required
+            Mobile Number is required
           </p>              
           <p *ngIf="phone.errors && phone.errors.pattern" color="danger" padding-left>
-            Phone Number is invalid. Enter a valid Phone number
+            Mobile Number is invalid. Enter a valid Phone number
           </p>
           </div>
         
 
         <div padding>
-          <button ion-button (click)="onSubmit(reportForm)" type="submit" color="danger" block>Submit</button>
+          <button ion-button (click)="onSubmit(registerForm)" type="submit" color="danger" block>Register</button>
         </div>
 
       </form>

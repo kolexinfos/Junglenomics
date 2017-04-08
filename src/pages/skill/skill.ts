@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { MessageProvider } from '../../providers/message-provider/message-provider';
+
 /*
   Generated class for the Skill page.
 
@@ -13,10 +15,15 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SkillPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  questions:Array<string> = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private messageProvider: MessageProvider) {
+    this.questions = this.messageProvider.GetData();
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SkillPage');
+    console.log(this.questions);
   }
 
 }
