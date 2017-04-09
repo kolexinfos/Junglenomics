@@ -30,6 +30,16 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+  ionViewDidEnter() {
+    console.log("View did enter RegisterPage");   
+  }  
+
+  ionViewWillEnter(event){
+    console.log("ionViewWillEnter RegisterPage");
+  }
+
+  
+
    onSubmit(form)
     {
          let loadingPopup = this.loadingCtrl.create({
@@ -57,6 +67,9 @@ export class RegisterPage {
                     loadingPopup.dismiss().catch(() => {});
                     this.navCtrl.pop();
                     // this.app.getRootNav().getActiveChildNav().select(1);
+                    this.messageProvider.SetLocalObject("userEmail", this.register.email);
+                    this.messageProvider.SetLocalObject("userFullname", this.register.username);
+
                      Toast.show("You have been registered successfully.", "short", 'bottom').subscribe(
                             toast => {
                             console.log(toast);

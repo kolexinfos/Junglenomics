@@ -27,11 +27,19 @@ mySlideOptions = {
   }
   
   ionViewDidEnter() {
-    console.log("View did enter");   
+    console.log("View did enter Homepage");   
   }  
 
   onSlideChangeStart(event){
     console.log(event);
+  }
+
+  ionViewWillEnter(event){
+    console.log("ionViewWillEnter Homepage");
+  }
+
+  ionViewDidLoad(event){
+    console.log("ionViewDidLoad Homepage");
   }
 
   gotoCalculate(){

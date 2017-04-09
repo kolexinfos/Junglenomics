@@ -32,6 +32,23 @@ export class MessageProvider {
     return this.questions;
   }
 
+  SendReport(report){
+    let headers =  new Headers({'Content' : 'application/json'});
+    let options = new RequestOptions({ headers : headers});
+
+    var response = this.http.post(this.url + 'skill',report, options);
+    return response;
+  }
+
+  GetLocalObject(objName){
+    return window.localStorage.getItem(objName);
+
+  }
+
+  SetLocalObject(objName, object){
+    window.localStorage.setItem(objName, object);
+  }
+
   constructor(private http: Http) {
 
     //Load this from a data store later
