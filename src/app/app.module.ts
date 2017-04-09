@@ -9,6 +9,7 @@ import { ScorePage } from '../pages/score/score';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SkillPage } from '../pages/skill/skill';
 import { RegisterPage } from '../pages/register/register';
+import { CheckPage } from '../pages/check/check';
 
 import { MessageProvider } from '../providers/message-provider/message-provider';
 
@@ -22,7 +23,8 @@ import { MessageProvider } from '../providers/message-provider/message-provider'
     ScorePage,
     TabsPage,
     SkillPage,
-    RegisterPage
+    RegisterPage,
+    CheckPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,7 +37,8 @@ import { MessageProvider } from '../providers/message-provider/message-provider'
     ScorePage,
     TabsPage,
     SkillPage,
-    RegisterPage
+    RegisterPage,
+    CheckPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, MessageProvider]
 })

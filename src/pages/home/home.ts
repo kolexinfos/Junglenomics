@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController, ModalController } from 'ionic-angular';
 import {InAppBrowser, SocialSharing, Device} from 'ionic-native';
+
+//Pages
 import { ScorePage } from '../score/score';
+import { CheckPage } from '../check/check';
+
+//Providers Services Factories
+import { MessageProvider } from '../../providers/message-provider/message-provider';
 
 
 /*
@@ -22,7 +28,10 @@ mySlideOptions = {
     pager:true
   }; 
 
-  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {    
+  constructor(public navCtrl: NavController, 
+  public loadingCtrl: LoadingController,
+  private messageProvider: MessageProvider,
+  private modalCtrl:ModalController) {    
     console.log("Constructor called");
   }
   
@@ -36,6 +45,21 @@ mySlideOptions = {
 
   ionViewWillEnter(event){
     console.log("ionViewWillEnter Homepage");
+
+    console.log(this.messageProvider.GetLocalObject('userEmail'));
+
+    if(this.messageProvider.GetLocalObject('userEmail') != null){
+      //this.navCtrl.setRoot(HomePage);
+      console.log("user already logged in");
+    }
+    else{
+        let checkModal = this.modalCtrl.create(CheckPage);
+
+        checkModal.present();
+
+        this.navCtrl.parent.select(3);
+        
+    }
   }
 
   ionViewDidLoad(event){
