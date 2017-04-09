@@ -36,11 +36,9 @@ export class RegisterPage {
 
   ionViewWillEnter(event){
     console.log("ionViewWillEnter RegisterPage");
-  }
+  }  
 
-  
-
-   onSubmit(form)
+  onSubmit(form)
     {
          let loadingPopup = this.loadingCtrl.create({
                   content: 'Please wait sending your registration details...',

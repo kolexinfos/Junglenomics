@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ModalController } from 'ionic-angular';
+import { NavController, LoadingController, ModalController, Tabs } from 'ionic-angular';
 import {InAppBrowser, SocialSharing, Device} from 'ionic-native';
 
 //Pages
@@ -36,7 +36,20 @@ mySlideOptions = {
   }
   
   ionViewDidEnter() {
-    console.log("View did enter Homepage");   
+    console.log("View did enter Homepage"); 
+     if(this.messageProvider.GetLocalObject('userEmail') != null){
+      //this.navCtrl.setRoot(HomePage);
+      console.log("user already logged in");
+    }
+    else{
+        let checkModal = this.modalCtrl.create(CheckPage);
+
+        checkModal.present();
+
+        var tab:Tabs = this.navCtrl.parent;
+        tab.select(3); 
+
+    }  
   }  
 
   onSlideChangeStart(event){
@@ -48,18 +61,7 @@ mySlideOptions = {
 
     console.log(this.messageProvider.GetLocalObject('userEmail'));
 
-    if(this.messageProvider.GetLocalObject('userEmail') != null){
-      //this.navCtrl.setRoot(HomePage);
-      console.log("user already logged in");
-    }
-    else{
-        let checkModal = this.modalCtrl.create(CheckPage);
-
-        checkModal.present();
-
-        this.navCtrl.parent.select(3);
-        
-    }
+   
   }
 
   ionViewDidLoad(event){

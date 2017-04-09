@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ModalController, Tabs } from 'ionic-angular';
+
+import { CheckPage } from '../check/check';
 
 import { MessageProvider } from '../../providers/message-provider/message-provider';
 import { Toast } from 'ionic-native';
 
 class Answer{
-  public questionNumber: number;
-    public answer: string;   
-    constructor(questionNumber: number, answer: string) {
+    public questionNumber: number;
+    public answer: string; 
+    public userEmail: string 
+    public dateCreated : string
+    constructor(questionNumber: number, answer: string, userEmail:string, dateCreated : string) {
         this.answer = answer;
         this.questionNumber = questionNumber;
+        this.userEmail = userEmail;
+        this.dateCreated = dateCreated;
     }
 }
 
@@ -40,7 +46,8 @@ export class SkillPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     private messageProvider: MessageProvider,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private modalCtrl:ModalController
     ) {
     
     console.log("Constructor Called");
@@ -49,10 +56,13 @@ export class SkillPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SkillPage');
     
+    
   }
 
   ionViewWillEnter(event){
     console.log("ionViewWillEnter Skillpage");
+    
+    
     this.questions = this.messageProvider.GetData();
 
     this.answer = 'yes';
@@ -63,8 +73,28 @@ export class SkillPage {
   }
 
   ionViewDidEnter() {
-    console.log("View did enter Skillpage");   
+    console.log("View did enter Skillpage");
+    this.checkUser(); 
+         
   }  
+
+  checkUser(){
+  if(this.messageProvider.GetLocalObject('userEmail') != null){
+      //this.navCtrl.setRoot(HomePage);
+      console.log("user already logged in");
+    }
+    else{
+        let checkModal = this.modalCtrl.create(CheckPage);
+
+        checkModal.present();
+
+        var tab:Tabs = this.navCtrl.parent;
+        //this.app.getRootNav().getActiveChildNav().getSelected().popT‌​oRoot()
+        console.log(tab);
+        tab.select(tab.getByIndex(3));               
+        
+    } 
+  }
 
   
   
@@ -77,7 +107,9 @@ export class SkillPage {
 
     console.log(this.answer);
 
-    this.answers.push(new Answer(this.questionNumber,this.answer));
+    this.answers.push(new Answer(this.questionNumber,this.answer, 
+                                 this.messageProvider.GetLocalObject('userEmail'), 
+                                 new Date().toLocaleDateString('en-GB')));
 
     console.log(this.answers);
 
@@ -90,7 +122,7 @@ export class SkillPage {
   }
 
 SendReport(){
-
+    
     let loadingPopup = this.loadingCtrl.create({
                   content: 'Please wait sending your SkillMi Quiz result...',
                   dismissOnPageChange : true
