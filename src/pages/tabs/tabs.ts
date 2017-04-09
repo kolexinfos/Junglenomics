@@ -5,6 +5,8 @@ import { ScorePage } from '../score/score';
 import { SkillPage } from '../skill/skill';
 import { RegisterPage } from '../register/register';
 
+import { MessageProvider } from '../../providers/message-provider/message-provider';
+
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -16,7 +18,14 @@ export class TabsPage {
   tab3Root: any = ScorePage;
   tab4Root: any = RegisterPage;
 
-  constructor() {
-
+  constructor(private messageProvider: MessageProvider) {
+    
   }
+
+  ionViewWillEnter(event){
+      if(this.messageProvider.GetLocalObject('userEmail') != null){
+        this.tab4Root = null;
+      }
+  }
+
 }

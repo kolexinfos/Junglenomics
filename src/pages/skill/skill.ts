@@ -88,9 +88,8 @@ export class SkillPage {
 
         checkModal.present();
 
-        var tab:Tabs = this.navCtrl.parent;
-        //this.app.getRootNav().getActiveChildNav().getSelected().popT‌​oRoot()
-        console.log(tab);
+        var tab:Tabs = this.navCtrl.parent;     
+        
         tab.select(tab.getByIndex(3));               
         
     } 
@@ -99,6 +98,7 @@ export class SkillPage {
   
   
   Next(){
+    this.checkUser();
     if(this.questionNumber != this.questions.length){
     this.question.text = this.questions[this.questionNumber];
     this.questionNumber += 1;
@@ -109,7 +109,7 @@ export class SkillPage {
 
     this.answers.push(new Answer(this.questionNumber,this.answer, 
                                  this.messageProvider.GetLocalObject('userEmail'), 
-                                 new Date().toLocaleDateString('en-GB')));
+                                 new Date().toLocaleString('en-GB')));
 
     console.log(this.answers);
 

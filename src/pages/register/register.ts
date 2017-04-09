@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, Tabs } from 'ionic-angular';
 
 import { Toast } from 'ionic-native';
 
@@ -73,6 +73,9 @@ export class RegisterPage {
                             console.log(toast);
                           }
                     );
+                        var tab:Tabs = this.navCtrl.parent;     
+        
+                        tab.select(tab.getByIndex(0));
                 },
                 err => {
                     loadingPopup.dismiss().catch(() => {});
