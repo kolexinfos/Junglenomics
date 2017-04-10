@@ -16,7 +16,7 @@ import { MessageProvider } from '../../providers/message-provider/message-provid
 })
 export class RegisterPage {
 
-  register: {email?: string, phone?: string,username?: string, password?:string} = {};
+  register: {email?: string, phone?: string,username?: string, password?:string, organization?:string} = {};
 
   submit = false;
   

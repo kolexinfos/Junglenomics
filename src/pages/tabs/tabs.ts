@@ -24,7 +24,7 @@ export class TabsPage {
 
   ionViewWillEnter(event){
       if(this.messageProvider.GetLocalObject('userEmail') != null){
-        this.tab4Root = null;
+        //this.tab4Root = null;
       }
   }
 

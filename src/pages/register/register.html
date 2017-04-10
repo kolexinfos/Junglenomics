@@ -63,6 +63,20 @@
             Mobile Number is invalid. Enter a valid Phone number
           </p>
           </div>
+
+           <ion-item>
+              <ion-label floating color="primary">Organization</ion-label>
+              <ion-input [(ngModel)]="register.organization" name="organization" type="text" #organization="ngModel" required clearInput="true">
+              </ion-input>
+            </ion-item>
+          <div [hidden]="organization.valid || organization.untouched" >
+            <p  *ngIf="organization.errors && organization.errors.required" color="danger" padding-left>
+              Organization is required
+            </p>
+            <p *ngIf="organization.errors && organization.errors.pattern" color="danger" padding-left>
+              Email is invalid
+            </p>
+          </div>
         
 
         <div padding>
