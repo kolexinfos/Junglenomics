@@ -99,19 +99,21 @@ export class SkillPage {
   
   Next(){
     this.checkUser();
-    if(this.questionNumber != this.questions.length){
-    this.question.text = this.questions[this.questionNumber];
-    this.questionNumber += 1;
+    
+    if(this.questionNumber != this.questions.length)
+    {
+        this.question.text = this.questions[this.questionNumber];
+        this.questionNumber += 1;
 
-    console.log(this.questionNumber);
+        console.log(this.questionNumber);
 
-    console.log(this.answer);
+        console.log(this.answer);
 
-    this.answers.push(new Answer(this.questionNumber,this.answer, 
-                                 this.messageProvider.GetLocalObject('userEmail'), 
-                                 new Date().toLocaleString('en-GB')));
+        this.answers.push(new Answer(this.questionNumber,this.answer, 
+                                    this.messageProvider.GetLocalObject('userEmail'), 
+                                    new Date().toLocaleString('en-GB')));
 
-    console.log(this.answers);
+        console.log(this.answers);
 
     }
     else{
@@ -134,8 +136,16 @@ SendReport(){
                     this.answer = {};
 
                     loadingPopup.dismiss().catch(() => {});
-                    this.navCtrl.pop();
-                    // this.app.getRootNav().getActiveChildNav().select(1);
+
+                    let checkModal = this.modalCtrl.create(CheckPage,
+                    { message: "You are not registered yet on the Junglenomics Platform just yet, please click register below."});
+
+                    checkModal.present();
+
+                    var tab:Tabs = this.navCtrl.parent;     
+                    
+                    tab.select(tab.getByIndex(0));
+                    
                      Toast.show("You SkillMi Quiz response has been sent successfully.", "short", 'bottom').subscribe(
                             toast => {
                             console.log(toast);
