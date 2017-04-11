@@ -13,14 +13,18 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 })
 export class CheckPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController) {}
+  notification: {message?: string} = {};
+
+  constructor(public navCtrl: NavController, public params: NavParams, private viewCtrl: ViewController) {
+    
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CheckPage');
+    this.notification.message = this.params.get('message');
   }
 
   Register(){
-    //this.tabs.select(3);
     this.viewCtrl.dismiss();
   }
 

@@ -16,10 +16,10 @@
 <ion-content>
   <ion-card >
       <ion-card-content color="danger">
-          You are not registered yet on the Junglenomics Platform just yet, please click register below.
-
+          <!--You are not registered yet on the Junglenomics Platform just yet, please click register below.-->
+          {{notification.message}}
           <div padding>
-            <button (click)="Register()" ion-button color="danger" small >Register</button>
+            <button (click)="Register()" ion-button color="danger" small >Ok</button>
           </div>
       </ion-card-content>
   </ion-card>

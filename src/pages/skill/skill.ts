@@ -54,8 +54,7 @@ export class SkillPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SkillPage');
-    
+    console.log('ionViewDidLoad SkillPage'); 
     
   }
 
@@ -84,7 +83,8 @@ export class SkillPage {
       console.log("user already logged in");
     }
     else{
-        let checkModal = this.modalCtrl.create(CheckPage);
+        let checkModal = this.modalCtrl.create(CheckPage,
+        { message: "You are not registered yet on the Junglenomics Platform just yet, please click register below."});
 
         checkModal.present();
 
