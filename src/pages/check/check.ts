@@ -24,4 +24,6 @@ export class CheckPage {
     this.viewCtrl.dismiss();
   }
 
+  
+
 }

@@ -18,13 +18,18 @@ export class TabsPage {
   tab3Root: any = ScorePage;
   tab4Root: any = RegisterPage;
 
+  registered: boolean = false;
+
   constructor(private messageProvider: MessageProvider) {
     
   }
 
   ionViewWillEnter(event){
       if(this.messageProvider.GetLocalObject('userEmail') != null){
-        //this.tab4Root = null;
+         this.registered = true;
+      }
+      else{
+        //do stuff pertaining to new user
       }
   }
 
