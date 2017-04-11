@@ -138,13 +138,15 @@ SendReport(){
                     loadingPopup.dismiss().catch(() => {});
 
                     let checkModal = this.modalCtrl.create(CheckPage,
-                    { message: "You are not registered yet on the Junglenomics Platform just yet, please click register below."});
+                    { message: "Thank you for completing the SkillMi Quiz."});
 
                     checkModal.present();
 
                     var tab:Tabs = this.navCtrl.parent;     
                     
                     tab.select(tab.getByIndex(0));
+
+                    this.messageProvider.SetLocalObject('SkillStatus', 'Done');
                     
                      Toast.show("You SkillMi Quiz response has been sent successfully.", "short", 'bottom').subscribe(
                             toast => {

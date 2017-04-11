@@ -26,7 +26,7 @@ export class TabsPage {
 
   ionViewWillEnter(event){
       if(this.messageProvider.GetLocalObject('userEmail') != null){
-         this.registered = true;
+         //this.registered = true;
       }
       else{
         //do stuff pertaining to new user
