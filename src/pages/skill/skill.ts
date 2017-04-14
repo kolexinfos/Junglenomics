@@ -33,6 +33,8 @@ export class SkillPage {
 
   questions:Array<string> = [];
 
+  toggle:boolean = true;
+
   question: {text?: string} = {};
 
   answers:Answer[];
@@ -53,6 +55,16 @@ export class SkillPage {
     console.log("Constructor Called");
   }
 
+  FirstStep(){
+      console.log("FirstStep Clicked");
+      this.toggle = !this.toggle;
+  }
+
+  SecondStep(){
+      console.log("FirstStep Clicked");
+      this.toggle = !this.toggle;
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SkillPage'); 
     
@@ -69,6 +81,8 @@ export class SkillPage {
     this.answers = [];
     this.questionNumber = 0
     this.question.text = this.questions[this.questionNumber];
+
+    this.toggle = true;
   }
 
   ionViewDidEnter() {
