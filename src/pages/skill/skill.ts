@@ -61,26 +61,49 @@ export class SkillPage {
     console.log("Constructor Called");
   }
 
+  CheckSkillStatus(){
+    if(!(this.messageProvider.GetLocalObject('FirstStep')) && !(this.messageProvider.GetLocalObject('SecondStep')))
+    {
+
+    }
+  }
+
   FirstStep(){
       console.log("FirstStep Clicked");
-
+      
+      if(this.messageProvider.GetLocalObject("FirstStep") == null){
       this.questionNumber = 0;
       this.toggle = !this.toggle;
       this.questionStep = 'FirstStep';
 
       this.question.text = this.questions[this.questionNumber];
+      }
+      else{
+        let checkModal = this.modalCtrl.create(CheckPage,
+        { message: "You have already completed the First Section of the SkillMi Quiz."});
+
+        checkModal.present();
+      }
   }
 
   SecondStep(){
       console.log("SecondStep Clicked");
 
-      this.questionNumber = 18;
-      this.question.text = this.questions[this.questionNumber];
-      this.questionStep = 'SecondStep';
+      if(this.messageProvider.GetLocalObject('SecondStep') == null){
+        this.questionNumber = 18;
+        this.question.text = this.questions[this.questionNumber];
+        this.questionStep = 'SecondStep';
 
-      this.toggle = !this.toggle;
+        this.toggle = !this.toggle;
 
-      console.log(this.questionNumber);
+        console.log(this.questionNumber);
+      }
+      else{
+        let checkModal = this.modalCtrl.create(CheckPage,
+        { message: "You have already completed the Second Section of the SkillMi Quiz."});
+
+          checkModal.present();
+      }
   }
 
   ionViewDidLoad() {
