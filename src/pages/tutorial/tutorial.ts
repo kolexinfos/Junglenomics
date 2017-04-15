@@ -28,19 +28,19 @@ export class TutorialPage {
 
     this.slides = [
       {
-        title: '<b>Junglenomics</b>',
+        title: '',
         description: 'WELCOME TO THE WORLD OF ENTERPRISE DESIGN',
-        image: 'img/234radio.jpg',
+        image: 'img/logo.png',
       },
       {
         title: '<b>Junglenomics</b>',
         description: 'WELCOME TO THE WORLD OF ENTERPRISE DESIGN',
-        image: 'img/234radio.jpg',
+        image: 'img/logo.png',
       },
       {
         title: '<b>Junglenomics</b>',
         description: 'WELCOME TO THE WORLD OF ENTERPRISE DESIGN',
-        image: 'img/234radio.jpg'
+        image: 'img/logo.png'
       }
     ];
 

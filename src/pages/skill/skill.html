@@ -22,10 +22,10 @@
     
   <ion-card-content>
     <p color="danger">THE SKILLMI QUIZ IS AN ADD ON FUNCTION OF JUNGLENOMICS GAMING SYSTEM THAT USES A PROPRIETARY ALGORITHM TO UNLOCK THE SPECIFIC SKILL SETS EMBEDDED IN EACH OF THE JUNGLENOMICS CARD TYPES. THE ALGORITHM IS ABLE TO</p>
-     <p color="favorite">1. IDENTIFY EACH PLAYERS UNIQUE COGNATE TRIBE </p>
-     <p color="favorite">2. IDENTIFY EACH PLAYERS CORE SKILL INTERESTS </p>
-     <p color="favorite">3. IDENTIFY OTHER PLAYERS THAT BELONG TO HIS/HER TRIBE </p> 
-     <p color="favorite">4. IDENTIFY PLAYERS WITH COMPLIMENTARY AND OVERLAPPING SKILL SETS (USING THE CARD TAXONOMY FRAMEWORK AND CARD BASED ENTERPRISE ARCHITECTURE AS A GUIDE).</p>
+     <p color="danger">1. IDENTIFY EACH PLAYERS UNIQUE COGNATE TRIBE </p>
+     <p color="danger">2. IDENTIFY EACH PLAYERS CORE SKILL INTERESTS </p>
+     <p color="danger">3. IDENTIFY OTHER PLAYERS THAT BELONG TO HIS/HER TRIBE </p> 
+     <p color="danger">4. IDENTIFY PLAYERS WITH COMPLIMENTARY AND OVERLAPPING SKILL SETS (USING THE CARD TAXONOMY FRAMEWORK AND CARD BASED ENTERPRISE ARCHITECTURE AS A GUIDE).</p>
 
   <button ion-button (click)="FirstStep()" color="secondary">Take Step 1</button>
 
@@ -62,7 +62,8 @@
               </ion-item>
           </ion-list>
           <div padding>
-            <button (click)="Next()" ion-button color="danger" small >Next</button>
+            <button *ngIf="toggleNext" (click)="Next()" ion-button color="danger" small >Next</button>
+            <button *ngIf="!toggleNext" (click)="Next()" ion-button color="danger" small >Finish</button>
           </div>
       </ion-card-content>
   </ion-card>

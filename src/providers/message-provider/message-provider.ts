@@ -12,9 +12,10 @@ import 'rxjs/add/operator/map';
 export class MessageProvider {
 
   url:string = 'https://shoppa.herokuapp.com/users/';
+  //url:string = 'http://localhost:3000/users/';
 
   questions: Array<string> = [];
-  
+
    headers =  new Headers({'Content' : 'application/json'});
    options = new RequestOptions({ headers : this.headers});
   

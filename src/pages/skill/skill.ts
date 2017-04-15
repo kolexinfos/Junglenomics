@@ -9,13 +9,16 @@ import { Toast } from 'ionic-native';
 class Answer{
     public questionNumber: number;
     public answer: string; 
-    public userEmail: string 
-    public dateCreated : string
-    constructor(questionNumber: number, answer: string, userEmail:string, dateCreated : string) {
+    public userEmail: string;
+    public dateCreated : string;
+    public questionStep : string;
+
+    constructor(questionNumber: number, answer: string, userEmail:string, dateCreated : string, questionStep: string) {
         this.answer = answer;
         this.questionNumber = questionNumber;
         this.userEmail = userEmail;
         this.dateCreated = dateCreated;
+        this.questionStep = questionStep;
     }
 }
 
@@ -34,6 +37,7 @@ export class SkillPage {
   questions:Array<string> = [];
 
   toggle:boolean = true;
+  toggleNext:boolean = true;
 
   question: {text?: string} = {};
 
@@ -43,7 +47,9 @@ export class SkillPage {
 
   answer:any;
 
-  questionNumber: number = 0
+  questionNumber: number = 0;
+
+  questionStep:string = '';
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -57,12 +63,24 @@ export class SkillPage {
 
   FirstStep(){
       console.log("FirstStep Clicked");
+
+      this.questionNumber = 0;
       this.toggle = !this.toggle;
+      this.questionStep = 'FirstStep';
+
+      this.question.text = this.questions[this.questionNumber];
   }
 
   SecondStep(){
-      console.log("FirstStep Clicked");
+      console.log("SecondStep Clicked");
+
+      this.questionNumber = 18;
+      this.question.text = this.questions[this.questionNumber];
+      this.questionStep = 'SecondStep';
+
       this.toggle = !this.toggle;
+
+      console.log(this.questionNumber);
   }
 
   ionViewDidLoad() {
@@ -83,6 +101,7 @@ export class SkillPage {
     this.question.text = this.questions[this.questionNumber];
 
     this.toggle = true;
+    this.toggleNext = true;
   }
 
   ionViewDidEnter() {
@@ -114,9 +133,37 @@ export class SkillPage {
   Next(){
     this.checkUser();
     
-    if(this.questionNumber != this.questions.length)
+    if(this.questionStep == 'FirstStep' &&  !(this.questionNumber > 17))
     {
-        this.question.text = this.questions[this.questionNumber];
+       this.NextQuestion();
+       if(this.questionNumber == 17)
+       {
+         this.toggleNext = false;
+       }
+    }
+    else if (this.questionStep == 'SecondStep' && !(this.questionNumber > this.questions.length - 1)){
+        this.NextQuestion();
+        if(this.questionNumber == 62)
+       {
+         this.toggleNext = false;
+       }
+    }
+    else{
+          console.log("Send Report Called");
+          try{
+            
+            this.SendReport();
+          }
+          catch(e){
+            console.log(e);
+          }
+      }
+
+     this.answer = 'yes' 
+  }
+
+  NextQuestion(){
+    this.question.text = this.questions[this.questionNumber];
         this.questionNumber += 1;
 
         console.log(this.questionNumber);
@@ -125,20 +172,12 @@ export class SkillPage {
 
         this.answers.push(new Answer(this.questionNumber,this.answer, 
                                     this.messageProvider.GetLocalObject('userEmail'), 
-                                    new Date().toLocaleString('en-GB')));
+                                    new Date().toLocaleString('en-GB'), this.questionStep));
 
         console.log(this.answers);
-
-    }
-    else{
-          this.SendReport();
-      }
-
-     this.answer = 'yes' 
   }
 
 SendReport(){
-    
     let loadingPopup = this.loadingCtrl.create({
                   content: 'Please wait sending your SkillMi Quiz result...',
                   dismissOnPageChange : true
@@ -160,7 +199,7 @@ SendReport(){
                     
                     tab.select(tab.getByIndex(0));
 
-                    this.messageProvider.SetLocalObject('SkillStatus', 'Done');
+                    this.messageProvider.SetLocalObject(this.questionStep, 'Done');
                     
                      Toast.show("You SkillMi Quiz response has been sent successfully.", "short", 'bottom').subscribe(
                             toast => {
@@ -184,6 +223,7 @@ SendReport(){
                    loadingPopup.dismiss().catch(() => {});
                 }
     )
+  
 }
 
 }
