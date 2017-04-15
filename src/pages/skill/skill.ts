@@ -61,12 +61,7 @@ export class SkillPage {
     console.log("Constructor Called");
   }
 
-  CheckSkillStatus(){
-    if(!(this.messageProvider.GetLocalObject('FirstStep')) && !(this.messageProvider.GetLocalObject('SecondStep')))
-    {
-
-    }
-  }
+ 
 
   FirstStep(){
       console.log("FirstStep Clicked");

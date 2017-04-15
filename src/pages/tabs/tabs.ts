@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { NavController, Tabs } from 'ionic-angular'
 
 import { HomePage } from '../home/home';
 import { ScorePage } from '../score/score';
 import { SkillPage } from '../skill/skill';
 import { RegisterPage } from '../register/register';
+
+
 
 import { MessageProvider } from '../../providers/message-provider/message-provider';
 
@@ -20,17 +23,28 @@ export class TabsPage {
 
   registered: boolean = false;
 
-  constructor(private messageProvider: MessageProvider) {
-    
-  }
+  user:string = '';
 
-  ionViewWillEnter(event){
-      if(this.messageProvider.GetLocalObject('userEmail') != null){
-         //this.registered = true;
+  constructor(private messageProvider: MessageProvider, public navCtrl: NavController) {
+     if(this.messageProvider.GetLocalObject('userEmail') != null){
+         console.log("User Already Registered");
+         this.user = 'User Profile'
       }
       else{
         //do stuff pertaining to new user
+        console.log("User Not Registered");
+        this.user = 'Register';
       }
+  }
+
+  ionViewDidEnter(event){
+      
+  }
+
+  GetReference(){
+    var tab:Tabs = this.navCtrl.parent;
+
+    
   }
 
 }

@@ -78,6 +78,8 @@ export class RegisterPage {
                         tab.select(tab.getByIndex(0));
                 },
                 err => {
+
+                    //TODO Automatically login user if email already exists
                     loadingPopup.dismiss().catch(() => {});
 
                     console.log(err);
