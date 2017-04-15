@@ -7,13 +7,28 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>Register</ion-title>
+    <ion-title>{{pageTitle}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content>
-   <ion-card>
+   <ion-card *ngIf="!toggle">
+     <ion-item>
+        <ion-label color="danger">Full Name : {{user.fullname}}</ion-label>
+        
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="danger">Email : {{user.email}}</ion-label>
+        
+      </ion-item>
+      <ion-item>
+        <ion-label color="danger">Organization : {{user.organization}}</ion-label>
+        
+      </ion-item>
+   </ion-card>
+   <ion-card *ngIf="toggle">
 
       <form #registerForm="ngForm" novalidate>
         <ion-item>

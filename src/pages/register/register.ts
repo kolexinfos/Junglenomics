@@ -18,16 +18,36 @@ export class RegisterPage {
 
   register: {email?: string, phone?: string,username?: string, password?:string, organization?:string} = {};
 
-  submit = false;
-  
+  user: {fullname?:string, email?: string, organization?: string} = {};
+
+  submit:boolean = false;
+
+  toggle:boolean= true;
+
+  pageTitle:string = ''; 
 
   constructor(public navCtrl: NavController, 
   public navParams: NavParams,
   private loadingCtrl: LoadingController,
-  private messageProvider: MessageProvider) {}
+  private messageProvider: MessageProvider) {
+    if(this.messageProvider.GetLocalObject('userEmail') == null)
+    {
+      this.toggle = true;
+      this.pageTitle = 'Register';
+    }
+    else{
+    this.toggle = false;
+    this.pageTitle = "User Profile";
+    }
+
+    this.user.fullname = this.messageProvider.GetLocalObject('userFullname');
+    this.user.email = this.messageProvider.GetLocalObject("userEmail");
+    this.user.organization = this.messageProvider.GetLocalObject("userOrganization");
+
+  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+    console.log('ionViewDidLoad RegisterPage');    
   }
 
   ionViewDidEnter() {
@@ -67,6 +87,7 @@ export class RegisterPage {
                     // this.app.getRootNav().getActiveChildNav().select(1);
                     this.messageProvider.SetLocalObject("userEmail", this.register.email);
                     this.messageProvider.SetLocalObject("userFullname", this.register.username);
+                    this.messageProvider.SetLocalObject("userOrganization", this.register.organization);
 
                      Toast.show("You have been registered successfully.", "short", 'bottom').subscribe(
                             toast => {
