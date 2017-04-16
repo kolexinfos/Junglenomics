@@ -39,7 +39,9 @@ export class SkillPage {
   toggle:boolean = true;
   toggleNext:boolean = true;
 
-  question: {text?: string} = {};
+
+
+  question: {text?: string,step?:string} = {};
 
   answers:Answer[];
 
@@ -59,6 +61,7 @@ export class SkillPage {
     ) {
     
     console.log("Constructor Called");
+    this.question.step = 'SkillMi Quiz';
   }
 
  
@@ -66,16 +69,17 @@ export class SkillPage {
   FirstStep(){
       console.log("FirstStep Clicked");
       
-      if(this.messageProvider.GetLocalObject("FirstStep") == null){
+      if(this.messageProvider.GetLocalObject("QuizCompleted") == null){
       this.questionNumber = 0;
       this.toggle = !this.toggle;
       this.questionStep = 'FirstStep';
+      this.question.step = 'First Section';
 
       this.question.text = this.questions[this.questionNumber];
       }
       else{
         let checkModal = this.modalCtrl.create(CheckPage,
-        { message: "You have already completed the First Section of the SkillMi Quiz."});
+        { message: "You have already completed the SkillMi Quiz."});
 
         checkModal.present();
       }
@@ -84,21 +88,18 @@ export class SkillPage {
   SecondStep(){
       console.log("SecondStep Clicked");
 
-      if(this.messageProvider.GetLocalObject('SecondStep') == null){
+      
         this.questionNumber = 18;
         this.question.text = this.questions[this.questionNumber];
         this.questionStep = 'SecondStep';
+        this.question.step = "Second Section";
 
-        this.toggle = !this.toggle;
+        //this.toggle = !this.toggle;
+        this.toggleNext = true;
 
         console.log(this.questionNumber);
-      }
-      else{
-        let checkModal = this.modalCtrl.create(CheckPage,
-        { message: "You have already completed the Second Section of the SkillMi Quiz."});
-
-          checkModal.present();
-      }
+      
+      
   }
 
   ionViewDidLoad() {
@@ -128,40 +129,49 @@ export class SkillPage {
          
   }  
 
-  checkUser(){
-  if(this.messageProvider.GetLocalObject('userEmail') != null){
-      //this.navCtrl.setRoot(HomePage);
-      console.log("user already logged in");
-    }
-    else{
-        let checkModal = this.modalCtrl.create(CheckPage,
-        { message: "You are not registered yet on the Junglenomics Platform just yet, please click register below."});
+  checkUser()
+   {
+    if(this.messageProvider.GetLocalObject('userEmail') != null){
+        //this.navCtrl.setRoot(HomePage);
+        console.log("user already logged in");
+      }
+      else{
+          let checkModal = this.modalCtrl.create(CheckPage,
+          { message: "You are not registered yet on the Junglenomics Platform just yet, please click register below."});
 
-        checkModal.present();
+          checkModal.present();
 
-        var tab:Tabs = this.navCtrl.parent;     
-        
-        tab.select(tab.getByIndex(3));               
-        
-    } 
-  }
+          var tab:Tabs = this.navCtrl.parent;     
+          
+          tab.select(tab.getByIndex(3));               
+          
+      } 
+   }
 
   
   
   Next(){
     this.checkUser();
     
-    if(this.questionStep == 'FirstStep' &&  !(this.questionNumber > 17))
+    if(this.questionStep == 'FirstStep')
     {
        this.NextQuestion();
-       if(this.questionNumber == 17)
+       if(this.questionNumber == 18)
        {
          this.toggleNext = false;
+       }
+       else if(this.questionNumber == 19){
+
+         let checkModal = this.modalCtrl.create(CheckPage,
+          { message: "You have just completed the First Section of the SkillMi Quiz. The Second Section starts now."});
+
+         checkModal.present();
+         this.SecondStep();
        }
     }
     else if (this.questionStep == 'SecondStep' && !(this.questionNumber > this.questions.length - 1)){
         this.NextQuestion();
-        if(this.questionNumber == 62)
+        if(this.questionNumber == 63)
        {
          this.toggleNext = false;
        }
@@ -196,6 +206,8 @@ export class SkillPage {
   }
 
 SendReport(){
+
+    this.question.step = 'SkillMi Quiz';
     let loadingPopup = this.loadingCtrl.create({
                   content: 'Please wait sending your SkillMi Quiz result...',
                   dismissOnPageChange : true
@@ -217,7 +229,7 @@ SendReport(){
                     
                     tab.select(tab.getByIndex(0));
 
-                    this.messageProvider.SetLocalObject(this.questionStep, 'Done');
+                    this.messageProvider.SetLocalObject('QuizCompleted', 'Done');
                     
                      Toast.show("You SkillMi Quiz response has been sent successfully.", "short", 'bottom').subscribe(
                             toast => {

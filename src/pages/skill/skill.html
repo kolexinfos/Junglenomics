@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>SkillMi Quiz</ion-title>
+    <ion-title>{{question.step}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -27,9 +27,9 @@
      <p color="danger">3. IDENTIFY OTHER PLAYERS THAT BELONG TO HIS/HER TRIBE </p> 
      <p color="danger">4. IDENTIFY PLAYERS WITH COMPLIMENTARY AND OVERLAPPING SKILL SETS (USING THE CARD TAXONOMY FRAMEWORK AND CARD BASED ENTERPRISE ARCHITECTURE AS A GUIDE).</p>
 
-  <button ion-button (click)="FirstStep()" color="secondary">Take Step 1</button>
+  <button ion-button (click)="FirstStep()" color="secondary">Take Quiz</button>
 
-  <button ion-button (click)="SecondStep()" color="favorite">Take Step 2</button>
+  <!--<button ion-button (click)="SecondStep()" color="favorite">Take Step 2</button>-->
 
   </ion-card-content>
   </ion-card>
