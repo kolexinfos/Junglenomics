@@ -19,23 +19,67 @@ export class ScorePage {
   score:{animalTotal?:number, relationalTotal?:number, peopleTotal?:number, giveTotal?:number, getTotal?: number, cardType?:string} = {}
   
 
-  animalModel:{cardsCount?: string, combined?:string, cardType?:string, showInput?:boolean} = {}
+  animalModel:{cardsCount?: number, combined?:string, cardType?:string, showInput?:boolean, total?: number} = {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-  private modalCtrl: ModalController, private messageProvider: MessageProvider)  {
+  constructor(public navCtrl: NavController, 
+  public navParams: NavParams,
+  private modalCtrl: ModalController, 
+  private messageProvider: MessageProvider)  {
     this.score.animalTotal = 0;
-    this.score.cardType = 'AnimalCard'
+    this.score.cardType = 'AnimalCard'.split(/(?=[A-Z])/).join(' ');
 
     this.animalModel.showInput = false;   
     this.animalModel.cardType = 'ant'; 
   }
 
   AnimalYes(){
-      this.animalModel.showInput = true;
+      this.animalModel.showInput = !this.animalModel.showInput;
+      //console.log(this.animalModel.cardsCount + " : " + typeof(this.animalModel.cardsCount));
+
+      if(!isNaN(this.animalModel.cardsCount)){
+        console.log("number"); 
+        this.animalModel.total = this.animalModel.total + this.animalModel.cardsCount;
+      }
+      else{
+        console.log("naaa");
+        let checkModal = this.modalCtrl.create(CheckPage,
+        { message: "Please enter a valid number."});
+
+        checkModal.present();
+      }
+
+      
   }
 
   AnimalNo(){
-    this
+    switch(this.animalModel.cardType)
+    {
+      case 'ant' :
+        console.log("Present on Ant Calc");
+        this.animalModel.cardType = 'bee';
+        break;
+      case 'bee' :
+        console.log("Present on Bee Calc");
+        this.animalModel.cardType = 'butterfly';
+        break;
+      case 'butterfly' :
+        console.log("Present on Butterfly Calc");
+        this.animalModel.cardType = 'cheetah';
+        break;
+      case 'cheetah' :
+        console.log("Present on Cheetah Calc");
+        this.animalModel.cardType = 'elephant';
+        break;
+      case 'elephant' :
+        console.log("Present on Elephant Calc");
+        this.animalModel.cardType = 'wasp';
+        break;
+      case 'wasp' :
+        console.log("Present on Wasp Calc");
+        //this.animalModel.cardType = 'bee';
+        break;
+    
+    }
   }
 
   ionViewDidLoad() {
