@@ -29,16 +29,26 @@ export class ScorePage {
     this.score.cardType = 'AnimalCard'.split(/(?=[A-Z])/).join(' ');
 
     this.animalModel.showInput = false;   
-    this.animalModel.cardType = 'ant'; 
+    this.animalModel.cardType = 'ant';
+    this.animalModel.total = 0; 
   }
 
   AnimalYes(){
       this.animalModel.showInput = !this.animalModel.showInput;
       //console.log(this.animalModel.cardsCount + " : " + typeof(this.animalModel.cardsCount));
+  }
+
+  CountSubmit(){
 
       if(!isNaN(this.animalModel.cardsCount)){
-        console.log("number"); 
-        this.animalModel.total = this.animalModel.total + this.animalModel.cardsCount;
+         
+        this.animalModel.total = Number(this.animalModel.total) + Number(this.animalModel.cardsCount);
+        console.log(this.animalModel.total);
+
+        this.MoveToNextAnimal();
+        this.animalModel.showInput = !this.animalModel.showInput;
+        this.animalModel.cardsCount = null;
+
       }
       else{
         console.log("naaa");
@@ -47,11 +57,13 @@ export class ScorePage {
 
         checkModal.present();
       }
-
-      
   }
 
   AnimalNo(){
+    this.MoveToNextAnimal();
+  }
+
+  MoveToNextAnimal(){
     switch(this.animalModel.cardType)
     {
       case 'ant' :
