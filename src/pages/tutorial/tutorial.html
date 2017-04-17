@@ -15,12 +15,15 @@
 </ion-header>
 
 <ion-content no-bounce class="">
+
   <ion-slides [options]="{pager: true}" (ionWillChange)="onSlideChangeStart($event)">
+    
     <ion-slide *ngFor="let slide of slides">
       <img [src]="slide.image" class="slide-image"/>
       <h2 class="slide-title" [innerHTML]="slide.title" color="danger"></h2>
       <p [innerHTML]="slide.description" color="danger"></p>
     </ion-slide>
+
     <ion-slide>
       <!--<img src="img/logo.png" class="slide-image"/>-->
       <!--<h2 class="slide-title">Continue?</h2>-->
@@ -29,6 +32,7 @@
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
     </ion-slide>
+
   </ion-slides>
 
 </ion-content>

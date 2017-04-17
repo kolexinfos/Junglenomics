@@ -16,43 +16,30 @@ import { CheckPage } from '../check/check';
 })
 export class ScorePage {
 
-  score:{animalTotal?:number, relationalTotal?:number, peopleTotal?:number, giveTotal?:number, getTotal?: number} = {}
+  score:{animalTotal?:number, relationalTotal?:number, peopleTotal?:number, giveTotal?:number, getTotal?: number, cardType?:string} = {}
+  
 
-  animalSection:Boolean = true;
-  relationalSection : Boolean = false;
-  peopleSection : Boolean = false;
-  giveSection : Boolean = false;
-  getSection : Boolean = false;
-
-  animalModel:{cardsCount?: string, combined?:string} = {}
+  animalModel:{cardsCount?: string, combined?:string, cardType?:string, showInput?:boolean} = {}
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   private modalCtrl: ModalController, private messageProvider: MessageProvider)  {
     this.score.animalTotal = 0;
-    this.score.relationalTotal = 0;
-    this.score.peopleTotal = 0
-    this.score.giveTotal = 0;
-    this.score.getTotal = 0;
+    this.score.cardType = 'AnimalCard'
+
+    this.animalModel.showInput = false;   
+    this.animalModel.cardType = 'ant'; 
+  }
+
+  AnimalYes(){
+      this.animalModel.showInput = true;
+  }
+
+  AnimalNo(){
+    this
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScorePage');
-  }
-
-  AnimalNext(){
-    console.log("Next Button on the Animal Page clicked");
-    this.relationalSection = true;
-    this.animalSection = false
-
-    //console.log(typeof(parseInt(this.animalModel.cardsCount)));
-    if(isNaN(parseInt(this.animalModel.cardsCount)) && isNaN(parseInt(this.animalModel.combined))){
-        console.log("This is not a number");
-        //TODO: Put Toast in here
-    }
-    else{
-      this.score.animalTotal = ((parseInt(this.animalModel.cardsCount) * 10) + (parseInt(this.animalModel.combined) * 20));
-    }
-
   }
 
   ionViewDidEnter() {
@@ -79,26 +66,5 @@ export class ScorePage {
     } 
   }
 
-  RelationalNext(){
-    console.log("Next Button on the Relational Page clicked");
-    this.relationalSection = false;
-    this.peopleSection = true;
-  }
-
-  PeopleNext(){
-    console.log("Next Button on the People Page clicked");
-    this.peopleSection = false;
-    this.getSection = true;
-  }
-
-  GetNext(){
-    console.log("Next Button on the Get Page clicked");
-    this.getSection = false;
-    this.giveSection = true;
-  }
-
-  GiveNext(){
-    console.log("Next Button on the Give Page clicked");
-  }
-
+  
 }

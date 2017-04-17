@@ -19,11 +19,15 @@
   }
 
   .getstart {
-
     background-image: url('../../img/bg1.jpg');
     background-repeat: no-repeat;
     background-size:cover;
-
-
   }
+
+  .swiper-slide img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
 

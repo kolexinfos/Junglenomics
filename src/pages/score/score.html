@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>Score</ion-title>
+    <ion-title>{{score.cardType}}</ion-title> 
   </ion-navbar>
 
 </ion-header>
@@ -15,142 +15,33 @@
 
 <ion-content >
 
-  <ion-card *ngIf="animalSection">
-  <!--<img src="img/ant.jpg"/>-->
-  <ion-card-header color="danger">
-    Animal Card
-  </ion-card-header>
-  <ion-card-content>
-    <p color="danger">THERE ARE 6 TYPES OF ANIMAL CARDS (ANT,BUMBLE BEE, CHEETAH, BUTTERFLY, WASP & ELEPHANT). ALL ANIMAL CARDS CAN BE COMBINED USING ONE SINGLE INNOVATION CARD. HAVING SAID THAT, THE WASP CARD ACTS AS A PENALTY CARD, AS IT DIVIDES A PLAYERS TOTAL SCORE BY HALF (1/2) ONCE
-IT IS COMBINED WITH OTHER ANIMAL CARDS. THE INNOVATION CARD PROVIDES A X3 BONUS TO THE TOTAL SCORE OF ANIMAL CARDS COMBINED. ALSO, ONCE A PLAYER USES MORE THAN 1 ANIMAL CARD, HE NOT ONLY GETS TO BOOST WITH AN INNOVATION CARD BUT ALSO , HE/SHE GETS A BONUS OF 20 EXTRA
-POINTS PER NEW ANIMAL CARD USED.</p>
-
-          <ion-list>
-              <ion-item>
-                <ion-label floating>Number of Animal Cards</ion-label>
-                <ion-input [(ngModel)]="animalModel.cardsCount" type="text" ></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label floating>Combined Animal Cards</ion-label>
-                <ion-input [(ngModel)]="animalModel.combined" type="text"></ion-input>
-              </ion-item>
-          </ion-list>
-          <div padding>
-            <button (click)="AnimalNext()" ion-button color="danger" small >Next</button>
-          </div>
-      </ion-card-content>
-  </ion-card>
-
-  <ion-card *ngIf="relationalSection">
-  <!--<img src="img/ant.jpg"/>-->
-  <ion-card-header color="danger">
-    Relational Cards
-  </ion-card-header>
-  <ion-card-content>
-
-          <ion-list>
-              <ion-item>
-                <ion-label floating>Number of Relational Cards</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label floating>Number of connecting Innovation Cards</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-          </ion-list>
-          <div padding>
-            <button (click)="RelationalNext()" ion-button color="danger" small>Next</button>
-          </div>
-      </ion-card-content>
-  </ion-card>
-
-  <ion-card *ngIf="peopleSection">
-  <!--<img src="img/ant.jpg"/>-->
-  <ion-card-header color="danger">
-    People Cards
-  </ion-card-header>
-  <ion-card-content>
-
-          <ion-list>
-              <ion-item>
-                <ion-label floating>Number of People Cards</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label floating>Number of connecting Innovation Cards</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-          </ion-list>
-          <div padding>
-            <button (click)="PeopleNext()" ion-button color="danger" small>Next</button>
-          </div>
-      </ion-card-content>
-  </ion-card>
-
-  <ion-card *ngIf="giveSection">
-  <!--<img src="img/ant.jpg"/>-->
-  <ion-card-header color="danger">
-    Give Cards
-  </ion-card-header>
-  <ion-card-content>
-
-          <ion-list>
-              <ion-item>
-                <ion-label floating>Number of Give Cards</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label floating>Number of connecting Innovation Cards</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-          </ion-list>
-          <div padding>
-            <button (click)="GiveNext()" ion-button color="danger" small>Next</button>
-          </div>
-      </ion-card-content>
-  </ion-card>
-
-  <ion-card *ngIf="getSection">
-  <!--<img src="img/ant.jpg"/>-->
-  <ion-card-header color="danger">
-    Get Cards
-  </ion-card-header>
-  <ion-card-content>
-
-          <ion-list>
-              <ion-item>
-                <ion-label floating>Number of Get Cards</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label floating>Number of connecting Innovation Cards</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-          </ion-list>
-          <div padding>
-            <button (click)="GetNext()" ion-button color="danger" small>Next</button>
-          </div>
-      </ion-card-content>
-  </ion-card>
-
   <ion-card>
-  <ion-card-content>
-
-          <ion-item>
-            <ion-icon name="warning" color="secondary" item-left></ion-icon>
-            <p color="secondary">Total Risk Rating</p>
-            <ion-badge color="secondary" item-right>{{score.animalTotal + score.relationalTotal}}</ion-badge>
-          </ion-item>          
+  
+    <img src="img/{{animalModel.cardType}}.jpg"/>
+    <ion-card-content>
+      
+            <div *ngIf="!animalModel.showInput" >
+              <p color="danger">Do you have this card.</p>
+              <button (click)="AnimalYes()" ion-button color="danger" small >Yes</button>
+              <button (click)="AnimalNo()" ion-button color="danger" small >No</button>
+            </div>
+            
+            <div *ngIf="animalModel.showInput" >
+            <ion-list >              
+                <ion-item>
+                  <ion-label floating>How many do you have?</ion-label>
+                  <ion-input [(ngModel)]="animalModel.combined" type="text"></ion-input>
+                </ion-item>
+            </ion-list> 
+            <div>            
+              <button (click)="AnimalNo()" ion-button color="danger" small >Submit</button>
+            </div>
+            </div>
         
-          <ion-item>
-            <ion-icon name="done-all" color="favorite" item-left></ion-icon>
-            <p color="favorite">Total Score</p>
-            <ion-badge item-right>{{score.animalTotal + score.relationalTotal}}</ion-badge>
-          </ion-item>
-
-          
-      </ion-card-content>
+        </ion-card-content>
   </ion-card>
+
+  
   
 
 </ion-content>

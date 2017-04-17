@@ -4,6 +4,7 @@ import { NavController, Tabs } from 'ionic-angular'
 import { HomePage } from '../home/home';
 import { ScorePage } from '../score/score';
 import { SkillPage } from '../skill/skill';
+import { LearnPage } from '../learn/learn';
 import { RegisterPage } from '../register/register';
 
 
@@ -19,7 +20,8 @@ export class TabsPage {
   tab1Root: any = HomePage;
   tab2Root: any = SkillPage;
   tab3Root: any = ScorePage;
-  tab4Root: any = RegisterPage;
+  tab4Root: any = LearnPage;
+  tab5Root: any = RegisterPage;
 
   registered: boolean = false;
 
