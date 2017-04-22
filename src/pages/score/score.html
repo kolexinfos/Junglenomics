@@ -35,6 +35,7 @@
             </ion-list> 
             <div>            
               <button (click)="CountSubmit()" ion-button color="danger" small >Submit</button>
+              <button ion-button color="danger" small >{{animalModel.total}}</button>
             </div>
             </div>
         
@@ -42,6 +43,23 @@
   </ion-card>
 
   
-  
+  <ion-card>
+  <ion-card-content>
+
+          <ion-item>
+            <ion-icon name="warning" color="secondary" item-left></ion-icon>
+            <p color="secondary">Total Risk Rating</p>
+            <ion-badge color="secondary" item-right>{{score.animalTotal + score.relationalTotal}}</ion-badge>
+          </ion-item>          
+        
+          <ion-item>
+            <ion-icon name="done-all" color="favorite" item-left></ion-icon>
+            <p color="favorite">Total Score</p>
+            <ion-badge item-right>{{score.animalTotal + score.relationalTotal}}</ion-badge>
+          </ion-item>
+
+          
+      </ion-card-content>
+  </ion-card>
 
 </ion-content>

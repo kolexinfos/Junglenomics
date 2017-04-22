@@ -96,11 +96,18 @@ export class ScorePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScorePage');
+    
   }
 
   ionViewDidEnter() {
     console.log("View did enter Skillpage");
     this.checkUser(); 
+    this.score.animalTotal = 0;
+    this.score.cardType = 'AnimalCard'.split(/(?=[A-Z])/).join(' ');
+
+    this.animalModel.showInput = false;   
+    this.animalModel.cardType = 'ant';
+    this.animalModel.total = 0;
          
   }
 
