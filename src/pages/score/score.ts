@@ -16,7 +16,7 @@ import { CheckPage } from '../check/check';
 })
 export class ScorePage {
 
-  score:{animalTotal?:number, relationalTotal?:number, peopleTotal?:number, giveTotal?:number, getTotal?: number, cardType?:string} = {}
+  score:{animalTotal?:number, relationalTotal?:number, peopleTotal?:number, giveTotal?:number, getTotal?: number, cardType?:string, total?: number} = {}
   
 
   animalModel:{cardsCount?: number, combined?:string, cardType?:string, showInput?:boolean, total?: number} = {}
@@ -25,7 +25,7 @@ export class ScorePage {
   public navParams: NavParams,
   private modalCtrl: ModalController, 
   private messageProvider: MessageProvider)  {
-    this.score.animalTotal = 0;
+    this.score.total = 0;
     this.score.cardType = 'AnimalCard'.split(/(?=[A-Z])/).join(' ');
 
     this.animalModel.showInput = false;   
@@ -48,6 +48,8 @@ export class ScorePage {
         this.MoveToNextAnimal();
         this.animalModel.showInput = !this.animalModel.showInput;
         this.animalModel.cardsCount = null;
+
+        this.score.total += this.animalModel.total;
 
       }
       else{
@@ -124,7 +126,7 @@ export class ScorePage {
 
         var tab:Tabs = this.navCtrl.parent;     
         
-        tab.select(tab.getByIndex(3));               
+        tab.select(tab.getByIndex(4));               
         
     } 
   }

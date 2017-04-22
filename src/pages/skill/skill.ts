@@ -143,7 +143,7 @@ export class SkillPage {
 
           var tab:Tabs = this.navCtrl.parent;     
           
-          tab.select(tab.getByIndex(3));               
+          tab.select(tab.getByIndex(4));               
           
       } 
    }
