@@ -147,12 +147,65 @@ export class SkillPage {
           
       } 
    }
-
   
+  EvaluateAnt():Boolean
+  {
+    var points:number = 0;
+    console.log(this.answers.slice(0,3));
+    this.answers.slice(0,3).forEach( function(answer){
+        
+        switch(answer.answer)
+        {
+    
+          case 'yes' :
+            points++;
+            break
+          case 'no' : 
+            points = points - 1
+            break
+          case 'none' :
+            //Do nothing
+            break;
+        }
+      
+    });
+    console.log('Point = ' + points)
+    if(points >= 1)
+      return true;
+    else 
+      return false;
+  }
+
+  EvaluateElephant():Boolean
+  {
+    return
+  }
+
+  EvaluateCheetah():Boolean
+  {
+    return
+  }
+
+  EvaluateBee():Boolean
+  {
+    return
+  }
+
+  EvaluateWasp():Boolean
+  {
+    return
+  }
+
+  EvaluateUnlockedCards(){
+      var result = this.EvaluateAnt();
+
+      console.log(result)
+  }
   
   Next(){
     this.checkUser();
-    
+    this.EvaluateAnt();
+
     if(this.questionStep == 'FirstStep')
     {
        this.NextQuestion();
@@ -162,6 +215,7 @@ export class SkillPage {
        }
        else if(this.questionNumber == 19){
 
+         this.EvaluateUnlockedCards();
          let checkModal = this.modalCtrl.create(CheckPage,
           { message: "You have just completed the First Section of the SkillMi Quiz. The Second Section starts now."});
 
