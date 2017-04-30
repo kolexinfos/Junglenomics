@@ -462,4 +462,78 @@ SendReport(){
   
 }
 
+EvaluateCoreValues(): Boolean
+{
+  return true
+}
+
+EvaluateCulture(): Boolean
+{
+  return true
+}
+
+EvaluateCoreObjectives(): Boolean
+{
+  return true
+}
+
+EvaluatePersonnel(): Boolean
+{
+  return true
+}
+
+EvaluateCorePartners(): Boolean
+{
+  return true
+}
+
+EvaluateClientCustomer(): Boolean
+{
+  return true
+}
+
+EvaluatePlatforms(): Boolean
+{
+  return true
+}
+
+EvaluateBusinessProcesses(): Boolean
+{
+  return true
+}
+
+EvaluateProducts(): Boolean
+{
+  return true
+}
+
+EvaluateServices(): Boolean
+{
+  return true
+}
+
+EvaluateContent(): Boolean
+{
+  return true
+}
+
+EvaluateRevenue(): Boolean
+{
+  return true
+}
+
+EvaluateGoodWill(): Boolean
+{
+  return true
+}
+
+EvaluateLoyalty(): Boolean
+{
+  return true
+}
+
+EvaluateInnovation(): Boolean
+{
+  return true
+}
 }
