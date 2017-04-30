@@ -46,6 +46,26 @@ export class MessageProvider {
 
   }
 
+  SetUnlockedCards(card){
+      
+
+      if(window.localStorage.getItem('UnlockedCards') != null)
+      {
+        let temp = window.localStorage.getItem("UnlockedCards");
+        let unlocked:Array<string> = JSON.parse(temp)
+        unlocked.push(card);
+
+        console.log(unlocked);
+        
+        window.localStorage.setItem('UnlockedCards', JSON.stringify(unlocked));
+      }
+      else{
+        var value:Array<string> = new Array<string>();
+        value.push(card)
+        window.localStorage.setItem('UnlockedCards',JSON.stringify(value));
+      }
+  }
+
   SetLocalObject(objName, object){
     window.localStorage.setItem(objName, object);
   }

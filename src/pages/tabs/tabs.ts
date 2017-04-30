@@ -6,6 +6,7 @@ import { ScorePage } from '../score/score';
 import { SkillPage } from '../skill/skill';
 import { LearnPage } from '../learn/learn';
 import { RegisterPage } from '../register/register';
+import { ResultPage } from '../result/result';
 
 
 
@@ -19,6 +20,7 @@ export class TabsPage {
   // should be each tab's root Page
   tab1Root: any = HomePage;
   tab2Root: any = SkillPage;
+  tab6Root: any = ResultPage;
   tab3Root: any = ScorePage;
   tab4Root: any = LearnPage;
   tab5Root: any = RegisterPage;
@@ -30,7 +32,7 @@ export class TabsPage {
   constructor(private messageProvider: MessageProvider, public navCtrl: NavController) {
      if(this.messageProvider.GetLocalObject('userEmail') != null){
          console.log("User Already Registered");
-         this.user = 'User Profile'
+         this.user = 'Profile'
       }
       else{
         //do stuff pertaining to new user

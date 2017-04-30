@@ -49,6 +49,8 @@ export class SkillPage {
 
   answer:any;
 
+  animalsUnlocked:number = 0;
+
   questionNumber: number = 0;
 
   questionStep:string = '';
@@ -121,6 +123,8 @@ export class SkillPage {
 
     this.toggle = true;
     this.toggleNext = true;
+
+    this.animalsUnlocked = 0;
   }
 
   ionViewDidEnter() {
@@ -150,13 +154,11 @@ export class SkillPage {
   
   EvaluateAnt():Boolean
   {
-    var points:number = 0;
-    console.log(this.answers.slice(0,3));
-    this.answers.slice(0,3).forEach( function(answer){
-        
+    var points:number = 0;  
+      
+    this.answers.slice(0,3).forEach( function(answer){        
         switch(answer.answer)
-        {
-    
+        {    
           case 'yes' :
             points++;
             break
@@ -171,40 +173,190 @@ export class SkillPage {
     });
     console.log('Point = ' + points)
     if(points >= 1)
+    { 
+      this.animalsUnlocked++;     
+      this.messageProvider.SetUnlockedCards( "ant" );
       return true;
-    else 
+    }
+    else
+    { 
       return false;
+    }
   }
 
   EvaluateElephant():Boolean
   {
-    return
+    var points:number = 0; 
+      
+    this.answers.slice(9,12).forEach( function(answer){
+        
+        switch(answer.answer)
+        {    
+          case 'yes' :
+            points++;
+            break
+          case 'no' : 
+            points = points - 1
+            break
+          case 'none' :
+            //Do nothing
+            break;
+        }
+      
+    });
+    console.log('Point = ' + points)
+    if(points >= 1)
+      {
+        this.animalsUnlocked++;
+        this.messageProvider.SetUnlockedCards( 'elephant' );
+        return true;
+      }
+    else{ 
+      return false;
+    }
   }
 
   EvaluateCheetah():Boolean
   {
-    return
+    var points:number = 0;
+    this.answers.slice(3,6).forEach( function(answer){
+        
+        switch(answer.answer)
+        {    
+          case 'yes' :
+            points++;
+            break
+          case 'no' : 
+            points = points - 1
+            break
+          case 'none' :
+            //Do nothing
+            break;
+        }
+      
+    });
+    console.log('Point = ' + points)
+    if(points >= 1)
+    {
+      this.animalsUnlocked++;
+      this.messageProvider.SetUnlockedCards( 'cheetah' );
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
+  EvaluateButterfly():Boolean
+  {
+    var points:number = 0;
+
+    this.answers.slice(6,9).forEach( function(answer){
+        
+        switch(answer.answer)
+        {    
+          case 'yes' :
+            points++;
+            break
+          case 'no' : 
+            points = points - 1
+            break
+          case 'none' :
+            //Do nothing
+            break;
+        }
+      
+    });
+    console.log('Point = ' + points)
+    if(points >= 1)
+    {
+      this.animalsUnlocked++;
+      this.messageProvider.SetUnlockedCards("butterfly");
+      return true;
+    }
+    else 
+    {
+      return false;
+    }
+  }
   EvaluateBee():Boolean
   {
-    return
+    var points:number = 0; 
+    console.log(this.answers.slice(12,15));
+    
+    this.answers.slice(15,18).forEach( function(answer){
+        
+        switch(answer.answer)
+        {    
+          case 'yes' :
+            points++;
+            break
+          case 'no' : 
+            points = points - 1
+            break
+          case 'none' :
+            //Do nothing
+            break;
+        }
+      
+    });
+    console.log('Point = ' + points)
+    if(points >= 1)
+    {
+      this.animalsUnlocked++;
+      this.messageProvider.SetUnlockedCards("bee");
+      return true;
+    }
+    else 
+    {
+      return false;
+    }
   }
 
   EvaluateWasp():Boolean
   {
-    return
+    var points:number = 0;    
+    this.answers.slice(15,18).forEach( function(answer){
+        
+        switch(answer.answer)
+        {    
+          case 'yes' :
+            points++;
+            break
+          case 'no' : 
+            points = points - 1
+            break
+          case 'none' :
+            //Do nothing
+            break;
+        }
+      
+    });
+    console.log('Point = ' + points)
+    if(points >= 1)
+    {
+      this.animalsUnlocked++;
+      this.messageProvider.SetUnlockedCards("wasp");
+      return true;
+    }
+    else 
+    {
+      return false;
+    }
   }
 
   EvaluateUnlockedCards(){
-      var result = this.EvaluateAnt();
-
-      console.log(result)
+      var butterfly = this.EvaluateButterfly();
+      var ant = this.EvaluateAnt();
+      var cheetah = this.EvaluateCheetah();
+      var elephant = this.EvaluateElephant();
+      var wasp = this.EvaluateWasp();
+      var bee = this.EvaluateBee();
+      
   }
   
   Next(){
     this.checkUser();
-    this.EvaluateAnt();
 
     if(this.questionStep == 'FirstStep')
     {

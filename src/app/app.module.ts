@@ -11,6 +11,7 @@ import { SkillPage } from '../pages/skill/skill';
 import { RegisterPage } from '../pages/register/register';
 import { CheckPage } from '../pages/check/check';
 import { LearnPage } from '../pages/learn/learn';
+import { ResultPage } from '../pages/result/result';
 
 import { MessageProvider } from '../providers/message-provider/message-provider';
 
@@ -26,7 +27,8 @@ import { MessageProvider } from '../providers/message-provider/message-provider'
     SkillPage,
     RegisterPage,
     CheckPage,
-    LearnPage
+    LearnPage,
+    ResultPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -41,7 +43,8 @@ import { MessageProvider } from '../providers/message-provider/message-provider'
     SkillPage,
     RegisterPage,
     CheckPage,
-    LearnPage
+    LearnPage,
+    ResultPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, MessageProvider]
 })
