@@ -43,7 +43,6 @@ export class MessageProvider {
 
   GetLocalObject(objName){
     return window.localStorage.getItem(objName);
-
   }
 
   SetUnlockedCards(card){
@@ -64,6 +63,14 @@ export class MessageProvider {
         value.push(card)
         window.localStorage.setItem('UnlockedCards',JSON.stringify(value));
       }
+  }
+
+  GetUnlockedCards():Array<string>
+  {
+    let temp = window.localStorage.getItem("UnlockedCards");
+    let unlocked:Array<string> = JSON.parse(temp);
+
+    return unlocked;
   }
 
   SetLocalObject(objName, object){
