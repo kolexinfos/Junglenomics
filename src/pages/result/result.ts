@@ -25,12 +25,20 @@ export class ResultPage {
   unlockedCards:Array<string> = new Array<string>();
 
   cards:Card[];
+
+  toggle:boolean;
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public messageProvider: MessageProvider) 
   {
     this.cards = [];
+    this.toggle = false;
     this.unlockedCards = this.messageProvider.GetUnlockedCards();
+
+    if(this.unlockedCards == null)
+    {
+      this.toggle = true;
+    }
     
   }
 
