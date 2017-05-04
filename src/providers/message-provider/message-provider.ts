@@ -73,6 +73,10 @@ export class MessageProvider {
     return unlocked;
   }
 
+  RemoveLocalObject(item){
+    window.localStorage.removeItem(item);
+  }
+
   SetLocalObject(objName, object){
     window.localStorage.setItem(objName, object);
   }

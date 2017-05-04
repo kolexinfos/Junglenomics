@@ -399,12 +399,14 @@ export class SkillPage {
 
   SendReport() {
 
-    if(this.animalsUnlocked == 0 && this.othersUnlocked == 0 && this.animalsUnlocked >= 5 && this.othersUnlocked >= 7)
+    if(this.animalsUnlocked == 0 || this.othersUnlocked == 0 || this.animalsUnlocked >= 5 && this.othersUnlocked >= 7)
     {
+      this.messageProvider.RemoveLocalObject("UnlockedCards")
       let checkModal = this.modalCtrl.create(CheckPage,
           { message: "Inconsistent result please try take the SkillMi Quiz again." });
 
-            checkModal.present();
+          checkModal.present();
+          this.ionViewWillEnter(this);
       return 
     }
 

@@ -26,12 +26,13 @@ export class ResultPage {
 
   cards:Card[];
 
-  toggle:boolean;
+  toggle:boolean= false;
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public messageProvider: MessageProvider) 
   {
-    this.cards = [];
+    console.log("ResultPage Contructor Called");
+    
     this.toggle = false;
     this.unlockedCards = this.messageProvider.GetUnlockedCards();
 
@@ -44,23 +45,21 @@ export class ResultPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultPage');
-    // console.log(this.unlockedCards);
-
-    this.unlockedCards.forEach( function(card){
-      this.cards.push(new Card(card));
-    });
-    console.log(this.cards);
   }
 
   ionViewWillEnter(){
-    console.log('ionViewDidLoad ResultPage');
-    // console.log(this.unlockedCards);
+    console.log('ionViewWillEnter ResultPage');
+    this.cards = [];
 
-    this.unlockedCards.forEach( function(card){
-      this.cards.push(new Card(card));
-    });
-    //console.log(this.cards);
+    for (var i = 0, len = this.unlockedCards.length; i < len; i++) {
+        this.AddToCard(this.unlockedCards[i]);
+    }
+    console.log(this.cards);
+  }
 
+  AddToCard(card:string):void
+  {
+    this.cards.push(new Card(card));
   }
 
 }
