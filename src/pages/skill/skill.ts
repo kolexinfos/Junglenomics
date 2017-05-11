@@ -407,7 +407,7 @@ export class SkillPage {
 
           checkModal.present();
           this.ionViewWillEnter(this);
-      return 
+      return;
     }
 
     this.question.step = 'SkillMi Quiz';

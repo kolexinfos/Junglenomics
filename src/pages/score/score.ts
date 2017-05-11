@@ -110,6 +110,17 @@ export class ScorePage {
     this.animalModel.showInput = false;   
     this.animalModel.cardType = 'ant';
     this.animalModel.total = 0;
+
+    let checkModal = this.modalCtrl.create(CheckPage,
+        { message: "This page is under construction and would be available in the next update"});
+
+        checkModal.present();
+
+        var tab:Tabs = this.navCtrl.parent;     
+        
+        tab.select(tab.getByIndex(1)); 
+
+
          
   }
 

@@ -80,11 +80,10 @@ export class RegisterPage {
             this.messageProvider.Register(this.register).subscribe(
                 data => {
                     console.log(data);
-                    this.register = {};
+                    
 
                     loadingPopup.dismiss().catch(() => {});
-                    this.navCtrl.pop();
-                    // this.app.getRootNav().getActiveChildNav().select(1);
+                    
                     this.messageProvider.SetLocalObject("userEmail", this.register.email);
                     this.messageProvider.SetLocalObject("userFullname", this.register.username);
                     this.messageProvider.SetLocalObject("userOrganization", this.register.organization);
@@ -97,6 +96,16 @@ export class RegisterPage {
                         var tab:Tabs = this.navCtrl.parent;     
         
                         tab.select(tab.getByIndex(0));
+
+                        tab.getByIndex(4).tabTitle = "Profile";
+
+                        this.register = {};
+
+                        this.toggle = false;
+
+                        this.user.fullname = this.messageProvider.GetLocalObject('userFullname');
+                        this.user.email = this.messageProvider.GetLocalObject("userEmail");
+                        this.user.organization = this.messageProvider.GetLocalObject("userOrganization");
                 },
                 err => {
 
