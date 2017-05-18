@@ -99,9 +99,9 @@ export class MessageProvider {
     this.questions.push('Are you interested in helping people and communities to be economically empowered, healthier, smarter etc?');
     this.questions.push('Are you interested in volunteering for causes (projects and or organizations) that help make the world a better place?');
     this.questions.push('Do you understand what it means to volunteer?');
-    this.questions.push('Do you believe that the end justifies the means?');
-    this.questions.push('Do you believe that rich people should be judged with a different set of criteria from poor people?');
-    this.questions.push('Considering the state of the Country, Would you pay taxes if it was Voluntary and not a mandatory legal requirement?');
+    this.questions.push('Are you interested in Crime Investigations and Analysis');
+    this.questions.push('Are you interested in Audits to identify Financial Crimes, Mismanagement and Embezzlement?');
+    this.questions.push('Are you interested in breaches of Corporate Governance, Ethical guidelines and Internal Controls within Enterprises?');
     this.questions.push('Do you have an interest in Values as an integral part of Human relations?');
     this.questions.push('Do you have an interest in Sociology and or Psychology as it applies to Organizations?');
     this.questions.push('Are you interested in peoples belief systems as a motivating factor in Organizations?');

@@ -48,7 +48,7 @@ mySlideOptions = {
         checkModal.present();
 
         var tab:Tabs = this.navCtrl.parent;
-        tab.select(5); 
+        tab.select(4); 
 
     }  
   }  
