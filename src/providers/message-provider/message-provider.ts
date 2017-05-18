@@ -111,7 +111,7 @@ export class MessageProvider {
     this.questions.push('Are you interested in Motivational Speaking?');
     this.questions.push('Are you interested in Goal Setting and Planning?');
     this.questions.push('Are you interested in Project Management as a Skill to have?');
-    this.questions.push('Are interested in HR as a profession?');
+    this.questions.push('Are interested in Recruitment as a profession?');
     this.questions.push('Do you see yourself helping people find jobs best suited for them?');
     this.questions.push('Do you see yourself helping teams come together for projects and or causes?');
     this.questions.push('Are you interested in helping different organizations come together for mutual benefit?');
@@ -119,7 +119,7 @@ export class MessageProvider {
     this.questions.push('Are you intetested in Economic Systems and how they work?');
     this.questions.push('Are you interested in Marketing Strategies?');
     this.questions.push('Are you interested in Sales and how to sell?');
-    this.questions.push('Are you interested in the relationship between Demographics / Phsycographics and Customer acquisition?');
+    this.questions.push('Are you interested in the relationship between Demographics / Psycographics and Customer acquisition?');
     this.questions.push('Are you interested in Designing and managing Online platforms?');
     this.questions.push('Are you interested in Designing and managing Mobile Platforms?');
     this.questions.push('Are you interested in Designing and Managing Enterprise Resource Platforms?');
@@ -142,10 +142,10 @@ export class MessageProvider {
     this.questions.push('Are you interested in Negotiations (win win) and partnership Building across Organizations?');
     this.questions.push('Are you interested in Risk Management and or Regulatoru Compliance Management?');
     this.questions.push('Are you interested in Customer Care and Management?');
-    this.questions.push('Are you intetestedin Customer Layalty systems and schemes?');
+    this.questions.push('Are you intetested in Customer Loyalty systems and schemes?');
     this.questions.push('Are you interested in Gamification and Incentive design management?');
     this.questions.push('Do you consider yourself a Creative thinker, with all sorts of crazy ideas that you are convinced will change the world?');
-    this.questions.push('Are you interested in Game Design abd creation (Board games, Card Games, Mobile App games etc)?');
+    this.questions.push('Are you interested in Game Design and creation (Board games, Card Games, Mobile App games etc)?');
     this.questions.push('Are you interested in problem solving and do you keep a journal of ideas that you have developed that you believe will solve problems in your areas of interest?');
     
   }

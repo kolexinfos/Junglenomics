@@ -130,6 +130,8 @@ export class SkillPage {
     this.toggleNext = true;
 
     this.animalsUnlocked = 0;
+
+    
   }
 
   ionViewDidEnter() {
@@ -394,7 +396,7 @@ export class SkillPage {
       this.messageProvider.GetLocalObject('userEmail'),
       new Date().toLocaleString('en-GB'), this.questionStep));
 
-    console.log(this.answers);
+    console.log(JSON.stringify(this.answers));
   }
 
   SendReport() {
@@ -434,7 +436,7 @@ export class SkillPage {
 
         this.messageProvider.SetLocalObject('QuizCompleted', 'Done');
 
-        Toast.show("You SkillMi Quiz response has been sent successfully.", "short", 'bottom').subscribe(
+        Toast.show("Your SkillMi Quiz response has been sent successfully.", "short", 'bottom').subscribe(
           toast => {
             console.log(toast);
           }
