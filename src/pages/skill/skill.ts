@@ -432,7 +432,7 @@ export class SkillPage {
 
         var tab: Tabs = this.navCtrl.parent;
 
-        tab.select(tab.getByIndex(0));
+        tab.select(tab.getByIndex(5));
 
         this.messageProvider.SetLocalObject('QuizCompleted', 'Done');
 

@@ -5,9 +5,11 @@ import { MessageProvider } from '../../providers/message-provider/message-provid
 
 class Card {
   public Name:string;
+  public Description:string;
 
   constructor(name: string) {
     this.Name = name;
+    this.Description = "";
   }
 }
 /*

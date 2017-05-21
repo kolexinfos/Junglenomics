@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
+import { File } from '@ionic-native/file';
 
 /*
   Generated class for the Learn page.
@@ -13,10 +15,41 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class LearnPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  fileTransfer: TransferObject = this.transfer.create();
+
+  constructor(private file: File, private transfer: Transfer, public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LearnPage');
+  }
+
+  download() {
+    const proposal = 'http://www.preptitude.com.ng/proposal.pdf';
+    const preview = 'http://www.preptitude.com.ng/preview.pdf';
+    const playbook = 'http://www.preptitude.com.ng/playbook.pdf';
+    
+    this.fileTransfer.download(proposal, this.file.dataDirectory +
+      'file.pdf').then((entry) => {
+        console.log('download complete: ' + entry.toURL());
+      }, (error) => {
+        // handle error
+      });
+
+      this.fileTransfer.download(preview, this.file.dataDirectory +
+      'file.pdf').then((entry) => {
+        console.log('download complete: ' + entry.toURL());
+      }, (error) => {
+        // handle error
+      });
+
+      this.fileTransfer.download(playbook, this.file.dataDirectory +
+      'file.pdf').then((entry) => {
+        console.log('download complete: ' + entry.toURL());
+      }, (error) => {
+        // handle error
+      });
+
+
   }
 
 }
