@@ -422,6 +422,7 @@ export class SkillPage {
       data => {
         console.log(data);
         this.answer = {};
+      
 
         loadingPopup.dismiss().catch(() => { });
 

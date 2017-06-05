@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { MessageProvider } from '../../providers/message-provider/message-provider';
 
@@ -7,9 +7,9 @@ class Card {
   public Name:string;
   public Description:string;
 
-  constructor(name: string) {
+  constructor(name: string, descritpion:string) {
     this.Name = name;
-    this.Description = "";
+    this.Description = descritpion;
   }
 }
 /*
@@ -31,18 +31,22 @@ export class ResultPage {
   toggle:boolean= false;
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public messageProvider: MessageProvider) 
+  constructor(public navCtrl: NavController, private loadingCtrl: LoadingController, public navParams: NavParams, public messageProvider: MessageProvider) 
   {
     console.log("ResultPage Contructor Called");
     
     this.toggle = false;
-    this.unlockedCards = this.messageProvider.GetUnlockedCards();
+    this.unlockedCards = this.messageProvider.GetUnlockedCards().filter(this.onlyUnique);
 
     if(this.unlockedCards == null)
     {
       this.toggle = true;
     }
     
+  }
+
+  onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
   }
 
   ionViewDidLoad() {
@@ -54,14 +58,19 @@ export class ResultPage {
     this.cards = [];
 
     for (var i = 0, len = this.unlockedCards.length; i < len; i++) {
-        this.AddToCard(this.unlockedCards[i]);
+        
+        var description:string = this.messageProvider.GetCardDescription(this.unlockedCards[i]);
+
+        this.AddToCard(this.unlockedCards[i], description);
+
+        //console.log(description);
     }
-    console.log(this.cards);
+    //console.log(this.cards);
   }
 
-  AddToCard(card:string):void
+  AddToCard(card:string, description:string):void
   {
-    this.cards.push(new Card(card));
+    this.cards.push(new Card(card, description));
   }
 
 }

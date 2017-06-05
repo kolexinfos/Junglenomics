@@ -1,5 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { File } from '@ionic-native/file';
+import { Transfer, TransferObject } from '@ionic-native/transfer';
 
 
 import { MyApp } from './app.component';
@@ -46,6 +48,6 @@ import { MessageProvider } from '../providers/message-provider/message-provider'
     LearnPage,
     ResultPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, MessageProvider]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, MessageProvider, File, Transfer, TransferObject]
 })
 export class AppModule {}

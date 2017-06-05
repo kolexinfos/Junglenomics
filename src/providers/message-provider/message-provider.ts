@@ -2,6 +2,15 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+class Card {
+  public Name:string;
+  public Description:string;
+
+  constructor(name: string, descritpion:string) {
+    this.Name = name;
+    this.Description = descritpion;
+  }
+}
 /*
   Generated class for the Message provider.
 
@@ -15,7 +24,7 @@ export class MessageProvider {
   //url:string = 'http://localhost:3000/users/';
 
   questions: Array<string> = [];
-  cards = Array<Object>();
+  cards = Array<Card>();
 
    headers =  new Headers({'Content' : 'application/json'});
    options = new RequestOptions({ headers : this.headers});
@@ -82,8 +91,19 @@ export class MessageProvider {
     window.localStorage.setItem(objName, object);
   }
 
-  GetCardDescription(name){
-    //this.cards.fil
+  GetCardDescription(name:string){
+    
+    var description:string;
+
+    for (var i = 0; i < this.cards.length; i++) {
+        
+      if (this.cards[i].Name.toLowerCase() == name.toLowerCase()) {
+        
+        return this.cards[i].Description;
+      }
+    }
+
+    // return description;
   }
 
   constructor(private http: Http) {
@@ -155,11 +175,11 @@ export class MessageProvider {
 
     this.cards = [
  {
-   "Name": "ANT",
+   "Name": "ant",
    "Description": " You are interested in small Enterprises  or start ups you either plan to start your very own business one day or you have already started. You have dreams of appearing on the cover of Fortune or Times magazine, yoi are not satisfied with where you are right now. You have a Creators heart."
  },
  {
-   "Name": "ELEPHANT",
+   "Name": "elephant",
    "Description": " You are interested in Large Enterprises and how they work, you are either planning to work with a large enterprise or are already working in one. You are ambitious, driven and fascinated with corporate culture and yoi see yourself on the Board of a large company one day. You have Builders heart."
  },
  {
@@ -171,7 +191,7 @@ export class MessageProvider {
    "Description": " You are interested in Luxury and Exclusive Enterprises. You appreaciate the finer things and understand that not everyone can get them. You are either planning to work in a Luxury/exclusive product/service Firm or already working in one.You are fascinated by class and priveledge and how exclusivity is generated. You have a Royal Heart."
  },
  {
-   "Name": "BUMBLE BEE",
+   "Name": "BEE",
    "Description": " You are interested in Benevolent Enterprises. You are willing to give and share to help the less priviledged and yoi hold yourself up to a high standard of ethical and moral values. You are either planning to work in an NGO or Social Enterprise or are already working in one. Yoi may be also Planning to integrate a give back Campaign for your Enterprise or have already done so. You have a Cruisaders Heart."
  },
  {
@@ -179,11 +199,11 @@ export class MessageProvider {
    "Description": " You are interested in Criminal Enterprises and how they work, you have an affinity for Law and Order and how Law enforcement Institutions are set up. You are also interested in Corporate Crime of an economic nature and how Boardrooms and Politicians Commit Economic, Ethical and Environmental crime. You eather plan to work with Law Enforcement or Audit firms or are already working in those areas. You have a Detectives Heart."
  },
  {
-   "Name": "CORE VALUES",
+   "Name": "COREVALUES",
    "Description": " Skill/Careers- HR, Audit, Company Secretary, Control, Regulatory Agency Professional."
  },
  {
-   "Name": "CORE OBJECTIVES",
+   "Name": "COREOBJECTIVES",
    "Description": " Skill/Careers- Project Management, ISO Auditor, Business Planning, Accounting, Legal."
  },
  {
@@ -203,7 +223,7 @@ export class MessageProvider {
    "Description": " Skill/Career- Marketing, Product Research & Develepment,  User Experiance (IX), Sociology, Economic Analysis, Phycology, Product/Service Design, Sales, Community Development, Trend Analysis, Corporate Communications."
  },
  {
-   "Name": "PRODUCT",
+   "Name": "PRODUCTS",
    "Description": " Skill/Career- 3d&2d Design, User Interface Design, Architecture, Engineering, Sciences, Manufacturing, Packaging, Health &Safety, Biologist, Physicist, Food Tech, Technical Drawing."
  },
  {
@@ -211,11 +231,11 @@ export class MessageProvider {
    "Description": " Skill/Career- Liberal Arts, Drama, Phsycology, Popular Culture, Quality Control, Customer Relationship Management, Social & Traditional Media, User Interface (UI), Communications, Religion, All Customer Service Certifications."
  },
  {
-   "Name": "BUSINESS PROCESS",
+   "Name": "BUSINESSPROCESSES",
    "Description": " Skill/Career- All ISO Certifications, Standardisation Certifications (Six Sigma, COBIT Etc) Flowchart Drafting Skills, Algorithm drafting skills, Accounting, IT Enterprise Platform (ERP)."
  },
  {
-   "Name": "PLATFORM",
+   "Name": "PLATFORMs",
    "Description": " Skill/Career- Website Design, IT Applications, UX/Marketing, UI, Graphic Design, Algorithm Drafting, Programming."
  },
  {

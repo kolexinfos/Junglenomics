@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { File } from '@ionic-native/file';
+import { Toast } from 'ionic-native';
 
 /*
   Generated class for the Learn page.
@@ -17,36 +18,70 @@ export class LearnPage {
 
   fileTransfer: TransferObject = this.transfer.create();
 
-  constructor(private file: File, private transfer: Transfer, public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(private file: File, private loadingCtrl: LoadingController, private transfer: Transfer, public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LearnPage');
   }
 
   download() {
+
+    let loadingPopup = this.loadingCtrl.create({
+      content: 'Please wait.....',
+      dismissOnPageChange: true
+    });
+
     const proposal = 'http://www.preptitude.com.ng/proposal.pdf';
     const preview = 'http://www.preptitude.com.ng/preview.pdf';
     const playbook = 'http://www.preptitude.com.ng/playbook.pdf';
     
-    this.fileTransfer.download(proposal, this.file.dataDirectory +
-      'file.pdf').then((entry) => {
+    this.fileTransfer.download(proposal, this.file.externalRootDirectory +
+      'proposal.pdf').then((entry) => {
         console.log('download complete: ' + entry.toURL());
       }, (error) => {
-        // handle error
+        
+        Toast.show(error, "5000", 'bottom').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
+        console.log(error);
       });
 
-      this.fileTransfer.download(preview, this.file.dataDirectory +
-      'file.pdf').then((entry) => {
+      this.fileTransfer.download(preview, this.file.externalRootDirectory +
+      'preview.pdf').then((entry) => {
         console.log('download complete: ' + entry.toURL());
+
+        
       }, (error) => {
-        // handle error
+
+        Toast.show(error, "5000", 'bottom').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
+
+        console.log(error);
       });
 
-      this.fileTransfer.download(playbook, this.file.dataDirectory +
-      'file.pdf').then((entry) => {
+      this.fileTransfer.download(playbook, this.file.externalRootDirectory +
+      'playbook.pdf').then((entry) => {
         console.log('download complete: ' + entry.toURL());
+
+        loadingPopup.dismiss().catch(() => { });
+
+        Toast.show("The resources have been downloaded to your root storage folder. Open File Manager to view", "5000", 'bottom').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
       }, (error) => {
-        // handle error
+        console.log(error);
+        Toast.show(error, "5000", 'bottom').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
       });
 
 

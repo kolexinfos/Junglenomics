@@ -15,18 +15,18 @@
 <ion-content>
  <ion-card *ngIf="!toggle">
    <ion-card-header>
-     You have actived the following Cognate Tribe!!!
+     Active Cognate Tribe and ICE
    </ion-card-header>
 
     <ion-card-content >
         <ion-list>
-          <ion-item *ngFor="let card of cards">
+          <ion-item *ngFor="let card of cards" text-wrap>
             <ion-avatar item-left>
               <img src="img/{{card.Name}}.jpg">
             </ion-avatar>
-            <h2>{{card.Name}}</h2>
-            <h3 [innerHTML]="card.Name">Don't Know What To Do!</h3>
-            <p [innerHTML]="card.Name"></p>
+            <h2 color="danger">{{card.Name}}</h2>
+            <h3 color="danger" [innerHTML]="card.Description">Don't Know What To Do!</h3>
+            <!--<p [innerHTML]="card.Name"></p>-->
           </ion-item>
         </ion-list>
     </ion-card-content>
