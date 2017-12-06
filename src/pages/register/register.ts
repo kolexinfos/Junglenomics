@@ -4,19 +4,15 @@ import { NavController, NavParams, LoadingController, Tabs } from 'ionic-angular
 import { Toast } from 'ionic-native';
 
 import { MessageProvider } from '../../providers/message-provider/message-provider';
-/*
-  Generated class for the Register page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html'
 })
 export class RegisterPage {
 
-  register: {email?: string, phone?: string,username?: string, password?:string, organization?:string} = {};
+  register: {email?: string, phone?: string,username?: string, password?:string, organization?:string,sponsor?:string,referral?:string} = {};
 
   user: {fullname?:string, email?: string, organization?: string} = {};
 

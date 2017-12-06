@@ -176,19 +176,19 @@ export class MessageProvider {
     this.cards = [
  {
    "Name": "ant",
-   "Description": " You are interested in small Enterprises  or start ups you either plan to start your very own business one day or you have already started. You have dreams of appearing on the cover of Fortune or Times magazine, yoi are not satisfied with where you are right now. You have a Creators heart."
+   "Description": " You are interested in small Enterprises  or start ups you either plan to start your very own business one day or you have already started. You have dreams of appearing on the cover of Fortune or Times magazine, you are not satisfied with where you are right now. You have a Creators heart and you belong to the CREATORS TRIBE."
  },
  {
    "Name": "elephant",
-   "Description": " You are interested in Large Enterprises and how they work, you are either planning to work with a large enterprise or are already working in one. You are ambitious, driven and fascinated with corporate culture and yoi see yourself on the Board of a large company one day. You have Builders heart."
+   "Description": " You are interested in Large Enterprises and how they work, you are either planning to work with a large enterprise or are already working in one. You are ambitious, driven and fascinated with corporate culture and you see yourself on the Board of a large company one day. You have Multipliers heart and you belong to the MULTIPLIERS TRIBE."
  },
  {
    "Name": "CHEETAH",
-   "Description": " You are interested in Knowledge Enterprises and you see yourself as a maverik with ideas that will change the world. You are either planning to work in a Knowledge Firm or You are already working in one. An unconventional thinker and like puzzles and intelligent discourse. You do not suffer fools gladly. You have a Teachers heart."
+   "Description": " You are interested in Knowledge Enterprises and you see yourself as a maverick with ideas that will change the world. You are either planning to work in a Knowledge Firm or You are already working in one. An unconventional thinker and like puzzles and intelligent discourse. You do not suffer fools gladly. You have a Consultants heart and you belong to the PROFESSIONALS TRIBE."
  },
  {
    "Name": "BUTTERFLY",
-   "Description": " You are interested in Luxury and Exclusive Enterprises. You appreaciate the finer things and understand that not everyone can get them. You are either planning to work in a Luxury/exclusive product/service Firm or already working in one.You are fascinated by class and priveledge and how exclusivity is generated. You have a Royal Heart."
+   "Description": " You are interested in Benevolent Enterprises. You are willing to give and share to help the less privileged and you hold yourself up to a high standard of ethical and moral values. You are either planning to work in an NGO or Social Enterprise or are already working in one. You may be also Planning to integrate a give back Campaign for your Enterprise or have already done so. You have a Crusaders Heart and you belong to the GIVERS TRIBE."
  },
  {
    "Name": "BEE",
@@ -196,7 +196,7 @@ export class MessageProvider {
  },
  {
    "Name": "WASP",
-   "Description": " You are interested in Criminal Enterprises and how they work, you have an affinity for Law and Order and how Law enforcement Institutions are set up. You are also interested in Corporate Crime of an economic nature and how Boardrooms and Politicians Commit Economic, Ethical and Environmental crime. You eather plan to work with Law Enforcement or Audit firms or are already working in those areas. You have a Detectives Heart."
+   "Description": "  You are interested in Criminal Enterprises and how they work, you have an affinity for Law and Order and how Law enforcement Institutions are set up. You are also interested in Corporate Crime of an economic nature and how Boardrooms and Politicians Commit Economic, Ethical and Environmental crime. You either plan to work with Law Enforcement or Audit firms or are already working in those areas. You have a Detectives Heart and you belong to the DETECTIVES TRIBE."
  },
  {
    "Name": "COREVALUES",
@@ -208,11 +208,11 @@ export class MessageProvider {
  },
  {
    "Name": "CULTURE",
-   "Description": " Skill/Careers- HR, Training, Policy Formulation, Fashion, Quality Control, Compliance, Trend Analyais, Popular Culture, Religion, Corporate Communications."
+   "Description": " Skill/Careers- HR, Training, Policy Formulation, Fashion, Quality Control, Compliance, Trend Analysis, Popular Culture, Religion, Corporate Communications."
  },
  {
    "Name": "PERSONNEL",
-   "Description": " Skill/Careers- HR, Training, Legal, Policy Formulation, Search & Selection, Testing, Certification Training, Outsourcing, Insourcing, All Human Resource Management Certifications."
+   "Description": " Skill/Careers- HR, Training, Legal, Policy Formulation, Search & Selection, Testing, Certification Training, Outsourcing, In sourcing, All Human Resource Management Certifications."
  },
  {
    "Name": "PARTNERS",
@@ -220,7 +220,7 @@ export class MessageProvider {
  },
  {
    "Name": "CLIENTCUSTOMER",
-   "Description": " Skill/Career- Marketing, Product Research & Develepment,  User Experiance (IX), Sociology, Economic Analysis, Phycology, Product/Service Design, Sales, Community Development, Trend Analysis, Corporate Communications."
+   "Description": " Skill/Career- Marketing, Product Research & Development,  User Experience (IX), Sociology, Economic Analysis, Physiology, Product/Service Design, Sales, Community Development, Trend Analysis, Corporate Communications."
  },
  {
    "Name": "PRODUCTS",
@@ -228,19 +228,19 @@ export class MessageProvider {
  },
  {
    "Name": "SERVICES",
-   "Description": " Skill/Career- Liberal Arts, Drama, Phsycology, Popular Culture, Quality Control, Customer Relationship Management, Social & Traditional Media, User Interface (UI), Communications, Religion, All Customer Service Certifications."
+   "Description": " Skill/Career- Liberal Arts, Drama, Psychology, Popular Culture, Quality Control, Customer Relationship Management, Social & Traditional Media, User Interface (UI), Communications, Religion, All Customer Service Certifications."
  },
  {
    "Name": "BUSINESSPROCESSES",
-   "Description": " Skill/Career- All ISO Certifications, Standardisation Certifications (Six Sigma, COBIT Etc) Flowchart Drafting Skills, Algorithm drafting skills, Accounting, IT Enterprise Platform (ERP)."
+   "Description": " Skill/Career- All ISO Certifications, Standardization Certifications (Six Sigma, COBIT Etc) Flowchart Drafting Skills, Algorithm drafting skills, Accounting, IT Enterprise Platform (ERP), Franchising."
  },
  {
    "Name": "PLATFORMs",
-   "Description": " Skill/Career- Website Design, IT Applications, UX/Marketing, UI, Graphic Design, Algorithm Drafting, Programming."
+   "Description": " Skill/Career- Website Design, IT Applications, UX/Marketing, UI, Graphic Design, Algorithm Drafting, Programming, Transportation and Logistics, Retail and Franchising."
  },
  {
    "Name": "CONTENT",
-   "Description": " Skill/Career- Writing, Copyrighting, Market Comminucations, Legal, Accounting/Financial,Public Relations."
+   "Description": " Skill/Career- Legal Due Diligence, Financial Due Diligence, ISO Certifications, COBIT, SIX SIGMA Certification."
  },
  {
    "Name": "REVENUE",
@@ -248,11 +248,11 @@ export class MessageProvider {
  },
  {
    "Name": "LOYALTY",
-   "Description": " Skill/Career- Customer Relationship Management, Customer Care, Sociology, psycology, CRM Online Platforms."
+   "Description": " Skill/Career- Customer Relationship Management, Customer Care, Sociology, psychology, CRM Online Platforms."
  },
  {
    "Name": "GOODWILL",
-   "Description": " Skill/Career- Negotiations, Business Relatioms, Diplomacy, Legal, Financial Analysis, Government Relations."
+   "Description": " Skill/Career- Negotiations, Business Relations, Diplomacy, Legal, Financial Analysis, Government Relations."
  },
  {
    "Name": "REVENUE",
@@ -260,7 +260,7 @@ export class MessageProvider {
  },
  {
    "Name": "INNOVATION",
-   "Description": " Philosophy, Creative Thinking, Idea Generation, Conceptualization, Game Design, Logic, Algorithm, Flowcharts."
+   "Description": " Skill/Career- Enterprise Design Thinking Certification, Design Thinking Certification or Training."
  }
 ]
     

@@ -89,7 +89,35 @@
               Organization is required
             </p>
             <p *ngIf="organization.errors && organization.errors.pattern" color="danger" padding-left>
-              Email is invalid
+              Organization is invalid
+            </p>
+          </div>
+
+           <ion-item>
+              <ion-label floating color="primary">Sponsor</ion-label>
+              <ion-input [(ngModel)]="register.sponsor" name="sponsor" type="text" #sponsor="ngModel" required clearInput="true">
+              </ion-input>
+            </ion-item>
+          <div [hidden]="sponsor.valid || sponsor.untouched" >
+            <p  *ngIf="sponsor.errors && sponsor.errors.required" color="danger" padding-left>
+              Sponsor is required
+            </p>
+            <p *ngIf="sponsor.errors && sponsor.errors.pattern" color="danger" padding-left>
+              Sponsor is invalid
+            </p>
+          </div>
+
+          <ion-item>
+              <ion-label floating color="primary">Who is your Referral</ion-label>
+              <ion-input [(ngModel)]="register.referral" name="referral" type="text" #referral="ngModel" required clearInput="true">
+              </ion-input>
+            </ion-item>
+          <div [hidden]="referral.valid || referral.untouched" >
+            <p  *ngIf="referral.errors && referral.errors.required" color="danger" padding-left>
+              Referral is required
+            </p>
+            <p *ngIf="referral.errors && referral.errors.pattern" color="danger" padding-left>
+              Referral is invalid
             </p>
           </div>
         
