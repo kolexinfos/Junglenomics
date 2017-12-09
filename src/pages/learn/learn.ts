@@ -35,7 +35,7 @@ export class LearnPage {
     const preview = 'http://www.preptitude.com.ng/preview.pdf';
     const playbook = 'http://www.preptitude.com.ng/playbook.pdf';
     
-    this.fileTransfer.download(proposal, this.file.externalRootDirectory +
+    this.fileTransfer.download(proposal, this.file.dataDirectory +
       'proposal.pdf').then((entry) => {
         console.log('download complete: ' + entry.toURL());
       }, (error) => {
@@ -48,7 +48,7 @@ export class LearnPage {
         console.log(error);
       });
 
-      this.fileTransfer.download(preview, this.file.externalRootDirectory +
+      this.fileTransfer.download(preview, this.file.dataDirectory +
       'preview.pdf').then((entry) => {
         console.log('download complete: ' + entry.toURL());
 
@@ -64,7 +64,7 @@ export class LearnPage {
         console.log(error);
       });
 
-      this.fileTransfer.download(playbook, this.file.externalRootDirectory +
+      this.fileTransfer.download(playbook, this.file.dataDirectory +
       'playbook.pdf').then((entry) => {
         console.log('download complete: ' + entry.toURL());
 
